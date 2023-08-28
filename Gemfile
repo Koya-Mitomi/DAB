@@ -7,6 +7,9 @@ gem 'rails-controller-testing'
 
 gem "bcrypt",          "3.1.18"
 
+# エラーメッセージを日本語化するために導入
+gem 'rails-i18n'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.7", ">= 7.0.7.2"
 
