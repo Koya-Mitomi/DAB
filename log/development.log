@@ -583,3 +583,1133 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 21ms (Views: 16.2ms | ActiveRecord: 0.0ms | Allocations: 3521)
 
 
+Started GET "/" for ::1 at 2023-08-28 23:43:34 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 17.1ms | Allocations: 575)
+  Rendered layouts/_header.html.erb (Duration: 13.5ms | Allocations: 327)
+  Rendered layouts/_footer.html.erb (Duration: 3.9ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 439.3ms | Allocations: 37037)
+Completed 200 OK in 607ms (Views: 477.6ms | ActiveRecord: 0.0ms | Allocations: 41491)
+
+
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yamada@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "山田 太郎"], ["email", "yamada@example.com"], ["created_at", "2023-08-28 14:48:19.797480"], ["updated_at", "2023-08-28 14:48:19.797480"], ["password_digest", "[FILTERED]"]]
+  [1m[36mTRANSACTION (9.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/users/1" for ::1 at 2023-08-28 23:54:44 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 151)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 340)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 33.6ms | Allocations: 15232)
+Completed 200 OK in 60ms (Views: 38.6ms | ActiveRecord: 1.0ms | Allocations: 24574)
+
+
+Started GET "/users/new" for ::1 at 2023-08-29 00:03:59 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 24.1ms | Allocations: 1457)
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 1541)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.0ms | Allocations: 2444)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% provide(:title, 'ユーザー登録') %>
+<h1>新規登録</h1>
+<%- form_with(model: @yuser) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :ユーザー名 %>
+
+):
+1:    <% provide(:title, 'ユーザー登録') %>
+2:    <h1>新規登録</h1>
+3:    <%- form_with(model: @yuser) do |f| %>
+4:    <%= f.label :name %>
+5:    <%= f.text_field :ユーザー名 %>
+  
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+Started GET "/users/new" for ::1 at 2023-08-29 00:04:18 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 13.0ms | Allocations: 1116)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 1199)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms | Allocations: 1999)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% provide(:title, 'ユーザー登録') %>
+<h1>新規登録</h1>
+<%- form_with(model: @yuser) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+):
+1:    <% provide(:title, 'ユーザー登録') %>
+2:    <h1>新規登録</h1>
+3:    <%- form_with(model: @yuser) do |f| %>
+4:    <%= f.label :name %>
+5:    <%= f.text_field :name %>
+  
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+Started GET "/signup" for ::1 at 2023-08-29 00:04:59 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1104)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1187)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1445)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% provide(:title, 'ユーザー登録') %>
+<h1>新規登録</h1>
+<%- form_with(model: @yuser) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+):
+1:    <% provide(:title, 'ユーザー登録') %>
+2:    <h1>新規登録</h1>
+3:    <%- form_with(model: @yuser) do |f| %>
+4:    <%= f.label :name %>
+5:    <%= f.text_field :name %>
+  
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+Started GET "/signup" for ::1 at 2023-08-29 00:05:53 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 178)
+  Rendered layouts/_header.html.erb (Duration: 9.7ms | Allocations: 340)
+  Rendered layouts/_footer.html.erb (Duration: 5.7ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 98.9ms | Allocations: 15301)
+Completed 200 OK in 108ms (Views: 104.1ms | ActiveRecord: 0.0ms | Allocations: 16131)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 00:06:41 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 12.3ms | Allocations: 1115)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 1198)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms | Allocations: 1996)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% provide(:title, 'ユーザー登録') %>
+<h1>新規登録</h1>
+<%- form_with(model: @user) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+):
+1:    <% provide(:title, 'ユーザー登録') %>
+2:    <h1>新規登録</h1>
+3:    <%- form_with(model: @user) do |f| %>
+4:    <%= f.label :name %>
+5:    <%= f.text_field :name %>
+  
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+Started GET "/signup" for ::1 at 2023-08-29 00:08:01 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1057)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1140)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.3ms | Allocations: 4215)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% provide(:title, 'ユーザー登録') %>
+<h1>新規登録</h1>
+<%- form_with(model: @user) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+):
+1:    <% provide(:title, 'ユーザー登録') %>
+2:    <h1>新規登録</h1>
+3:    <%- form_with(model: @user) do |f| %>
+4:    <%= f.label :name %>
+5:    <%= f.text_field :name %>
+  
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+Started GET "/signup" for ::1 at 2023-08-29 00:08:46 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 1119)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 1202)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms | Allocations: 2014)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% provide(:title, 'ユーザー登録') %>
+<h1>新規登録</h1>
+<%= form_with(model: @user) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+):
+1:    <% provide(:title, 'ユーザー登録') %>
+2:    <h1>新規登録</h1>
+3:    <%= form_with(model: @user) do |f| %>
+4:    <%= f.label :name %>
+5:    <%= f.text_field :name %>
+  
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+Started GET "/signup" for ::1 at 2023-08-29 00:09:06 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 1118)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 1201)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 2014)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% provide(:title, 'ユーザー登録') %>
+<h1>新規登録</h1>
+<%= form_with(model: @user) do |f| %>
+<%= f.label :name %>
+<%# <%= f.text_field :name %> %>
+
+):
+1:    <% provide(:title, 'ユーザー登録') %>
+2:    <h1>新規登録</h1>
+3:    <%= form_with(model: @user) do |f| %>
+4:    <%= f.label :name %>
+5:    <%# <%= f.text_field :name %> %>
+  
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+Started GET "/signup" for ::1 at 2023-08-29 00:09:15 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 9.0ms | Allocations: 1119)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 1203)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms | Allocations: 2022)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% provide(:title, 'ユーザー登録') %>
+<h1>新規登録</h1>
+<%= form_with(model: @user) do |f| %>
+<%# <%= f.label :name %> %>
+<%# <%= f.text_field :name %> %>
+
+):
+1:    <% provide(:title, 'ユーザー登録') %>
+2:    <h1>新規登録</h1>
+3:    <%= form_with(model: @user) do |f| %>
+4:    <%# <%= f.label :name %> %>
+5:    <%# <%= f.text_field :name %> %>
+  
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+app/views/users/new.html.erb:8: syntax error, unexpected end-of-input
+Started GET "/signup" for ::1 at 2023-08-29 00:09:24 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 175)
+  Rendered layouts/_header.html.erb (Duration: 2.0ms | Allocations: 340)
+  Rendered layouts/_footer.html.erb (Duration: 0.8ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 37.1ms | Allocations: 15300)
+Completed 200 OK in 46ms (Views: 43.1ms | ActiveRecord: 0.0ms | Allocations: 16149)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 00:11:30 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 121.0ms | Allocations: 12877)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 318)
+  Rendered layouts/_footer.html.erb (Duration: 0.7ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 132.7ms | Allocations: 16489)
+Completed 200 OK in 142ms (Views: 139.2ms | ActiveRecord: 0.0ms | Allocations: 17324)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 00:11:46 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 15.5ms | Allocations: 973)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 318)
+  Rendered layouts/_footer.html.erb (Duration: 0.7ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 31.1ms | Allocations: 4698)
+Completed 200 OK in 42ms (Views: 36.7ms | ActiveRecord: 0.0ms | Allocations: 5533)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 00:11:48 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 605)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 119)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3535)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 3827)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 00:13:21 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 20.2ms | Allocations: 737)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 318)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 32.3ms | Allocations: 4460)
+Completed 200 OK in 42ms (Views: 37.6ms | ActiveRecord: 0.0ms | Allocations: 5294)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 00:15:22 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 17.9ms | Allocations: 1407)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 318)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 28.7ms | Allocations: 5130)
+Completed 200 OK in 37ms (Views: 34.7ms | ActiveRecord: 0.0ms | Allocations: 5965)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 00:24:35 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 25.3ms | Allocations: 1556)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 320)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 51.8ms | Allocations: 16437)
+Completed 200 OK in 66ms (Views: 58.1ms | ActiveRecord: 0.3ms | Allocations: 19877)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:24:39 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウント新規作成"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 4019)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 119)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 6927)
+Completed 422 Unprocessable Entity in 26ms (Views: 13.0ms | ActiveRecord: 0.6ms | Allocations: 10696)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 00:24:55 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 27.0ms | Allocations: 1342)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 318)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 40.7ms | Allocations: 5065)
+Completed 200 OK in 51ms (Views: 47.8ms | ActiveRecord: 0.0ms | Allocations: 5899)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:29:31 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 10.4ms | Allocations: 2248)
+  Rendered users/new.html.erb within layouts/application (Duration: 39.8ms | Allocations: 6633)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 316)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 49.9ms | Allocations: 10284)
+Completed 422 Unprocessable Entity in 64ms (Views: 56.2ms | ActiveRecord: 0.2ms | Allocations: 13863)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 00:30:13 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 11.3ms | Allocations: 219)
+  Rendered users/new.html.erb within layouts/application (Duration: 14.9ms | Allocations: 1736)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 316)
+  Rendered layouts/_footer.html.erb (Duration: 0.9ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 27.6ms | Allocations: 5454)
+Completed 200 OK in 38ms (Views: 33.1ms | ActiveRecord: 0.0ms | Allocations: 6289)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:30:14 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 2021)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 5900)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 118)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 8761)
+Completed 422 Unprocessable Entity in 18ms (Views: 10.2ms | ActiveRecord: 0.2ms | Allocations: 11816)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:31:14 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 13.5ms | Allocations: 2233)
+  Rendered users/new.html.erb within layouts/application (Duration: 19.3ms | Allocations: 6613)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 316)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 31.3ms | Allocations: 10264)
+Completed 422 Unprocessable Entity in 46ms (Views: 38.5ms | ActiveRecord: 0.4ms | Allocations: 13878)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 00:31:29 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 7.1ms | Allocations: 222)
+  Rendered users/new.html.erb within layouts/application (Duration: 10.9ms | Allocations: 1727)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 316)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | Allocations: 5445)
+Completed 200 OK in 32ms (Views: 29.4ms | ActiveRecord: 0.0ms | Allocations: 6280)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:31:31 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 1049)
+  Rendered users/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1217)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1298)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.4ms | Allocations: 4337)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 2..3)):
+    1: <% if @user.errors.any? %>
+    2:   <div id="error_explanation">
+    3:     <div class="alert alert-danger">
+    4:       エラー数<%= pluralize(@user.errors.count) %>
+    5:     </div>
+    6:     <ul>
+    7:     <% @user.errors.full_messages.each do |msg| %>
+  
+app/views/shared/_error_messages.html.erb:4
+app/views/users/new.html.erb:4
+app/views/users/new.html.erb:3
+app/controllers/users_controller.rb:17:in `create'
+Started GET "/signup" for ::1 at 2023-08-29 00:31:46 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered users/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1037)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 118)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 4005)
+Completed 200 OK in 14ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 4296)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:31:48 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 1037)
+  Rendered users/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 1164)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 1245)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms | Allocations: 4235)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 2..3)):
+    1: <% if @user.errors.any? %>
+    2:   <div id="error_explanation">
+    3:     <div class="alert alert-danger">
+    4:       エラー数<%= pluralize(@user.errors.count) %>
+    5:     </div>
+    6:     <ul>
+    7:     <% @user.errors.full_messages.each do |msg| %>
+  
+app/views/shared/_error_messages.html.erb:4
+app/views/users/new.html.erb:4
+app/views/users/new.html.erb:3
+app/controllers/users_controller.rb:17:in `create'
+Started GET "/signup" for ::1 at 2023-08-29 00:31:55 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 1.4ms | Allocations: 224)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1757)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 316)
+  Rendered layouts/_footer.html.erb (Duration: 0.7ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 5515)
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 0.0ms | Allocations: 6349)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:31:57 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 2021)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 5900)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 118)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 8761)
+Completed 422 Unprocessable Entity in 19ms (Views: 12.5ms | ActiveRecord: 0.4ms | Allocations: 11808)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:32:43 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 18.0ms | Allocations: 2230)
+  Rendered users/new.html.erb within layouts/application (Duration: 22.4ms | Allocations: 6610)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 316)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 33.9ms | Allocations: 10261)
+Completed 422 Unprocessable Entity in 49ms (Views: 41.4ms | ActiveRecord: 0.3ms | Allocations: 13853)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 00:37:51 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 249)
+  Rendered users/new.html.erb within layouts/application (Duration: 25.6ms | Allocations: 3083)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 341)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 413.4ms | Allocations: 39453)
+Completed 200 OK in 1804ms (Views: 444.4ms | ActiveRecord: 0.5ms | Allocations: 213668)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:37:56 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 1.4ms | Allocations: 2737)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 6627)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 118)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 9490)
+Completed 422 Unprocessable Entity in 35ms (Views: 13.8ms | ActiveRecord: 0.3ms | Allocations: 14630)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:39:14 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 2019)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 5855)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 118)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 8718)
+Completed 422 Unprocessable Entity in 17ms (Views: 10.5ms | ActiveRecord: 0.3ms | Allocations: 11749)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 00:39:19 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered users/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1040)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 118)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 4011)
+Completed 200 OK in 19ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 4310)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:39:20 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 1.2ms | Allocations: 2019)
+  Rendered users/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 5855)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 118)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 8747)
+Completed 422 Unprocessable Entity in 20ms (Views: 13.9ms | ActiveRecord: 0.5ms | Allocations: 11761)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:42:36 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 160.8ms | Allocations: 27748)
+  Rendered users/new.html.erb within layouts/application (Duration: 165.5ms | Allocations: 31822)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 133)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 188.8ms | Allocations: 45977)
+Completed 422 Unprocessable Entity in 204ms (Views: 190.8ms | ActiveRecord: 1.3ms | Allocations: 52509)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 00:42:46 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered users/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1045)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 118)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 3977)
+Completed 200 OK in 17ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 4281)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:42:48 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 2.1ms | Allocations: 2019)
+  Rendered users/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 5859)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 118)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 8758)
+Completed 422 Unprocessable Entity in 25ms (Views: 15.0ms | ActiveRecord: 0.5ms | Allocations: 11778)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:44:50 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 167.1ms | Allocations: 27719)
+  Rendered users/new.html.erb within layouts/application (Duration: 170.0ms | Allocations: 31793)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 133)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 195.4ms | Allocations: 45948)
+Completed 422 Unprocessable Entity in 211ms (Views: 197.2ms | ActiveRecord: 1.3ms | Allocations: 52450)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:45:07 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 166.3ms | Allocations: 27719)
+  Rendered users/new.html.erb within layouts/application (Duration: 169.3ms | Allocations: 31793)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 133)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 195.9ms | Allocations: 45948)
+Completed 422 Unprocessable Entity in 211ms (Views: 197.5ms | ActiveRecord: 1.3ms | Allocations: 52485)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:45:19 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 171.0ms | Allocations: 27721)
+  Rendered users/new.html.erb within layouts/application (Duration: 174.0ms | Allocations: 31795)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 133)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 200.1ms | Allocations: 45950)
+Completed 422 Unprocessable Entity in 215ms (Views: 202.1ms | ActiveRecord: 1.0ms | Allocations: 52500)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:50:03 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 160.9ms | Allocations: 27686)
+  Rendered users/new.html.erb within layouts/application (Duration: 163.9ms | Allocations: 31760)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 133)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 187.3ms | Allocations: 45915)
+Completed 422 Unprocessable Entity in 203ms (Views: 188.9ms | ActiveRecord: 1.4ms | Allocations: 52424)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:50:07 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 1.2ms | Allocations: 2019)
+  Rendered users/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 5856)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 118)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 8717)
+Completed 422 Unprocessable Entity in 20ms (Views: 14.4ms | ActiveRecord: 0.2ms | Allocations: 11732)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 00:52:22 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 249)
+  Rendered users/new.html.erb within layouts/application (Duration: 10.5ms | Allocations: 3090)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 341)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 122.4ms | Allocations: 39436)
+Completed 200 OK in 357ms (Views: 132.7ms | ActiveRecord: 0.7ms | Allocations: 85374)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 00:52:25 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1029)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 118)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 3985)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.0ms | Allocations: 4284)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:52:29 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 2.5ms | Allocations: 2724)
+  Rendered users/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 6630)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 118)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 9501)
+Completed 422 Unprocessable Entity in 28ms (Views: 16.4ms | ActiveRecord: 0.5ms | Allocations: 14643)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:53:24 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 189.1ms | Allocations: 27540)
+  Rendered users/new.html.erb within layouts/application (Duration: 192.8ms | Allocations: 31428)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 133)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 218.9ms | Allocations: 45585)
+Completed 422 Unprocessable Entity in 236ms (Views: 220.7ms | ActiveRecord: 1.1ms | Allocations: 52118)
+
+
+Started POST "/users" for ::1 at 2023-08-29 00:54:33 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 17.0ms | Allocations: 2014)
+  Rendered users/new.html.erb within layouts/application (Duration: 31.6ms | Allocations: 6215)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 316)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 47.6ms | Allocations: 9909)
+Completed 422 Unprocessable Entity in 64ms (Views: 56.1ms | ActiveRecord: 0.4ms | Allocations: 13881)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 00:54:38 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered users/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1042)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 118)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 3978)
+Completed 200 OK in 13ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 4277)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 01:01:44 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 225)
+  Rendered users/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1954)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 318)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 60.6ms | Allocations: 16921)
+Completed 200 OK in 76ms (Views: 65.5ms | ActiveRecord: 0.3ms | Allocations: 20724)
+
+
+Started POST "/users" for ::1 at 2023-08-29 01:02:08 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"koya", "email"=>"558koya@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "558koya@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Create (12.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "koya"], ["email", "558koya@example.com"], ["created_at", "2023-08-28 16:02:08.826951"], ["updated_at", "2023-08-28 16:02:08.826951"], ["password_digest", "[FILTERED]"]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (10.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 238ms (ActiveRecord: 23.9ms | Allocations: 4575)
+
+
+Started GET "/users/2" for ::1 at 2023-08-29 01:02:08 +0900
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+Started GET "/" for ::1 at 2023-08-29 01:08:37 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.4ms | Allocations: 575)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 327)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 94.6ms | Allocations: 37409)
+Completed 200 OK in 296ms (Views: 102.9ms | ActiveRecord: 0.0ms | Allocations: 77405)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 01:08:41 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 239)
+  Rendered users/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 2505)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 133)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 5566)
+Completed 200 OK in 46ms (Views: 29.9ms | ActiveRecord: 0.7ms | Allocations: 12189)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/users" for ::1 at 2023-08-29 01:09:56 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"njbkn bl", "email"=>"foo@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "njbkn bl"], ["email", "foo@example.com"], ["created_at", "2023-08-28 16:09:57.271345"], ["updated_at", "2023-08-28 16:09:57.271345"], ["password_digest", "[FILTERED]"]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (20.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 241ms (ActiveRecord: 21.4ms | Allocations: 6289)
+
+
+Started GET "/users/3" for ::1 at 2023-08-29 01:09:57 +0900
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+Started GET "/" for ::1 at 2023-08-29 01:11:52 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 575)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 327)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 107.4ms | Allocations: 37478)
+Completed 200 OK in 317ms (Views: 115.5ms | ActiveRecord: 0.0ms | Allocations: 77474)
+
+
+Started GET "/users/2" for ::1 at 2023-08-29 01:12:03 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+Started GET "/users/1" for ::1 at 2023-08-29 01:12:49 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+Started GET "/" for ::1 at 2023-08-29 01:13:17 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.2ms | Allocations: 575)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 327)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 110.0ms | Allocations: 37386)
+Completed 200 OK in 328ms (Views: 120.0ms | ActiveRecord: 0.0ms | Allocations: 77382)
+
+
+Started GET "/users/1" for ::1 at 2023-08-29 01:13:29 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+Started GET "/" for ::1 at 2023-08-29 01:15:43 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.0ms | Allocations: 575)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 327)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 91.6ms | Allocations: 37483)
+Completed 200 OK in 293ms (Views: 100.5ms | ActiveRecord: 0.0ms | Allocations: 77479)
+
+
+Started GET "/users/1" for ::1 at 2023-08-29 01:15:49 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 169)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 154)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 3370)
+Completed 200 OK in 47ms (Views: 18.3ms | ActiveRecord: 0.8ms | Allocations: 12402)
+
+
+Started GET "/users/3" for ::1 at 2023-08-29 01:18:15 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 23)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 155)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 35.5ms | Allocations: 14386)
+Completed 200 OK in 48ms (Views: 37.6ms | ActiveRecord: 1.2ms | Allocations: 18961)
+
+
+Started GET "/" for ::1 at 2023-08-29 01:18:46 +0900
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 87)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 127)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 3303)
+Completed 200 OK in 15ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 3839)
+
+
+Started GET "/signup" for ::1 at 2023-08-29 01:18:48 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 238)
+  Rendered users/new.html.erb within layouts/application (Duration: 87.8ms | Allocations: 13298)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 118)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 94.7ms | Allocations: 16125)
+Completed 200 OK in 99ms (Views: 95.7ms | ActiveRecord: 0.0ms | Allocations: 16503)
+
+
+Started POST "/users" for ::1 at 2023-08-29 01:19:09 +0900
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ky", "email"=>"koya@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"アカウントを新規作成"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "koya@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "ky"], ["email", "koya@example.com"], ["created_at", "2023-08-28 16:19:10.113398"], ["updated_at", "2023-08-28 16:19:10.113398"], ["password_digest", "[FILTERED]"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (11.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 314ms (ActiveRecord: 13.3ms | Allocations: 4853)
+
+
+Started GET "/users/4" for ::1 at 2023-08-29 01:19:10 +0900
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 13)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 128)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 3220)
+Completed 200 OK in 15ms (Views: 11.8ms | ActiveRecord: 0.1ms | Allocations: 4018)
+
+
+Started GET "/users/4" for ::1 at 2023-08-29 01:25:57 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 13)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 128)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 3105)
+Completed 200 OK in 29ms (Views: 21.4ms | ActiveRecord: 0.7ms | Allocations: 4004)
+
+
