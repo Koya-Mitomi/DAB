@@ -1,0 +1,13 @@
+<% provide(:title, "支出科目一覧") %>
+<h1>支出科目一覧</h1>
+<% if @expenditures.present? %>
+  <% @expenditures.each do |e| %>
+    <%= e.name %>
+    <% if current_user?(e.user) %>
+      <%= link_to "編集", edit_expenditure_path(e) %>
+      <%= link_to "削除", "expenditures/#{e.id}", data: {"turbo-method": :delete,
+                                    turbo_confirm: "本当に削除してよろしいですか？"} %><br>
+    <% end %>
+  <% end %>
+<% end %><br>
+<%= link_to "支出科目を追加", expenditure_register_path %>

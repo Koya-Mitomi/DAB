@@ -1,44 +1,44 @@
-class IncomesController < ApplicationController
+class ExpendituresController < ApplicationController
   before_action :logged_in_user
   before_action :correct_user, only: :destroy
 
   def new
-    @income = Income.new
+    @expenditure = Expenditure.new
   end
 
   def create
-    @income = current_user.incomes.build(income_params)
-    if @income.save
-      flash[:success] = "収入科目を追加しました!"
-      redirect_to income_path
+    @expenditure = current_user.expenditures.build(expenditure_params)
+    if @expenditure.save
+      flash[:success] = "支出科目を追加しました!"
+      redirect_to expenditure_path
     else
       render 'new', status: :unprocessable_entity
     end
   end
 
   def index
-    @incomes = current_user.incomes.order(:name)
+    @expenditures = current_user.expenditures.order(:name)
   end
 
   def edit
-    @income = current_user.incomes.find_by(id: params[:id])
+    @expenditure = current_user.expenditures.find_by(id: params[:id])
   end
 
   def update
-    @income = current_user.incomes.find_by(id: params[:id])
-    if @income.update(income_params)
+    @expenditure = current_user.expenditures.find_by(id: params[:id])
+    if @expenditure.update(expenditure_params)
       flash[:success] = "収入科目名が更新されました"
-      redirect_to @income
+      redirect_to @expenditure
     else
       render 'edit', status: :unprocessable_entity
     end
   end
 
   def destroy
-    @income.destroy
+    @expenditure.destroy
     flash[:success] = "収入科目が削除されました"
     if request.referrer.nil?
-      redirect_to income_path, status: :see_other
+      redirect_to expenditure_path, status: :see_other
     else
       redirect_to request.referrer, status: :see_other
     end
@@ -46,8 +46,8 @@ class IncomesController < ApplicationController
 
   private
 
-    def income_params
-      params.require(:income).permit(:name)
+    def expenditure_params
+      params.require(:expenditure).permit(:name)
     end
 
     # ログイン済みかどうか確認
@@ -61,7 +61,7 @@ class IncomesController < ApplicationController
 
     # 正しいユーザーかどうか確認
     def correct_user
-      @income = current_user.incomes.find_by(id: params[:id])
-      redirect_to root_url, status: :see_other if @income.nil?
+      @expenditure = current_user.expenditures.find_by(id: params[:id])
+      redirect_to root_url, status: :see_other if @expenditure.nil?
     end
 end
