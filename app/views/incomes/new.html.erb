@@ -1,0 +1,10 @@
+<% provide(:title, '収入科目の追加') %>
+<h1>収入科目の追加</h1>
+<%= form_with(model: @income) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :name, "収入科目名" %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.submit "収入科目を追加する", class: "btn btn-primary" %>
+<% end %>

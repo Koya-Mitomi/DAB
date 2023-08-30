@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   get    "/login",   to: "sessions#new"
   post   "/login",   to: "sessions#create"
   delete "/logout",  to: "sessions#destroy"
+  get "/income", to:"incomes#index"
+  get "/income_register", to: "incomes#new"
+  delete 'incomes/:id' => 'incomes#destroy'
+  patch 'incomes/:id'  => 'incomes#update'
   resources :users
+  resources :incomes
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
