@@ -1,4 +1,6 @@
 <% provide(:title, "ホームページ") %>
 <h1>DAB</h1>
 <p>家計簿アプリDABへようこそ！</p>
-<%= link_to "新規登録", signup_path, class: "btn" %>
+<% if !logged_in? %>
+  <%= link_to "新規登録", signup_path, class: "btn" %>
+<% end %>
