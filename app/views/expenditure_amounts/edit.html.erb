@@ -1,0 +1,15 @@
+<% provide(:title, '支出科目の金額の編集') %>
+<h1>支出の金額の編集</h1>
+<%= form_with(model: @expenditure_amount, url: "/expenditure_amounts/#{@expenditure_amount.id}", method: :patch) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.number_field :expenditure_id, class: 'form-control' %>
+
+  <%= f.label :date, "年月" %>
+  <%= f.date_select :date, class: 'form-control' %>
+
+  <%= f.label :amount, "金額" %>
+  <%= f.number_field :amount, class: 'form-control' %>円
+
+  <%= f.submit "変更を保存する", class: "btn btn-primary" %>
+<% end %>
