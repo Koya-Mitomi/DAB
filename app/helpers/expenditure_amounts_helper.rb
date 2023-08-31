@@ -1,0 +1,2 @@
+module ExpenditureAmountsHelper
+end
