@@ -3,7 +3,7 @@
 <%= form_with(model: @income_amount, url: "/income_amounts/#{@income_amount.id}", method: :patch) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.number_field :income_id, class: 'form-control' %>
+  <%= f.hidden_field :income_id, class: 'form-control' %>
 
   <%= f.label :date, "年月" %>
   <%= f.date_select :date, class: 'form-control' %>
