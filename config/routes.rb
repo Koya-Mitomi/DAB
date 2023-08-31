@@ -14,9 +14,13 @@ Rails.application.routes.draw do
   get "/expenditure_register", to: "expenditures#new"
   delete 'expenditures/:id' => 'expenditures#destroy'
   patch 'expenditures/:id'  => 'expenditures#update'
+  get "/income_amount", to:"income_amounts#index"
+  get "/income_amount_register", to:"income_amounts#new"
+  delete 'income_amounts/:id' => 'income_amounts#destroy'
   resources :users
   resources :incomes
   resources :expenditures
+  resources :income_amounts
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
