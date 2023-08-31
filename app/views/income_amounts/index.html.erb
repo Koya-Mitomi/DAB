@@ -1,0 +1,12 @@
+<% provide(:title, "収入科目の金額") %>
+<h1><%= Income.find(params[:format]).name%>の金額一覧</h1>
+<% if @income_amounts.present? %>
+  <% @income_amounts.each do |ia| %>
+    <%= ia.date.strftime('%Y年%m月%d日') %>
+    <%= ia.amount %>円
+    <%= link_to "編集", edit_income_amount_path(ia) %>
+    <%= link_to "削除", "income_amounts/#{ia.id}", data: {"turbo-method": :delete,
+                                  turbo_confirm: "本当に削除してよろしいですか？"} %><br>
+  <% end %>
+<% end %><br>
+<%= link_to "金額を追加", income_amount_register_path(params[:format]) %>
