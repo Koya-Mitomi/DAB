@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get "/signup", to: "users#new"
   root "static_pages#home"
   get "/help", to: "static_pages#help"
+  get "/income_sum", to: "sum#income_sum"
+  get "/expenditure_sum", to: "sum#expenditure_sum"
   get    "/login",   to: "sessions#new"
   post   "/login",   to: "sessions#create"
   delete "/logout",  to: "sessions#destroy"

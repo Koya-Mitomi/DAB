@@ -1,0 +1,3 @@
+<% provide(:title, "支出の合計")%>
+<h1>今月の支出</h1>
+<%= ExpenditureAmount.where(date: Time.zone.today.all_month).sum(:amount) %>円
