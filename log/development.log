@@ -26189,3 +26189,748 @@ Processing by ExpenditureAmountsController#edit as HTML
 Completed 200 OK in 41ms (Views: 37.2ms | ActiveRecord: 0.3ms | Allocations: 13441)
 
 
+  [1m[36mIncomeAmount Load (0.2ms)[0m  [1m[34mSELECT "income_amounts".* FROM "income_amounts"[0m
+  [1m[36mIncomeAmount Load (0.3ms)[0m  [1m[34mSELECT "income_amounts".* FROM "income_amounts" WHERE "income_amounts"."date" BETWEEN ? AND ?[0m  [["date", "2023-09-01"], ["date", "2023-09-30"]]
+  [1m[36mIncomeAmount Load (0.2ms)[0m  [1m[34mSELECT "income_amounts".* FROM "income_amounts" WHERE "income_amounts"."date" BETWEEN ? AND ?[0m  [["date", "2023-08-01"], ["date", "2023-08-31"]]
+  [1m[36mIncomeAmount Load (0.2ms)[0m  [1m[34mSELECT "income_amounts".* FROM "income_amounts" WHERE "income_amounts"."date" BETWEEN ? AND ?[0m  [["date", "2023-08-31"], ["date", "2023-08-31"]]
+  [1m[36mIncomeAmount Sum (0.3ms)[0m  [1m[34mSELECT SUM("income_amounts"."amount") FROM "income_amounts"[0m
+  [1m[36mIncomeAmount Load (0.2ms)[0m  [1m[34mSELECT "income_amounts".* FROM "income_amounts"[0m
+  [1m[36mIncomeAmount Sum (0.3ms)[0m  [1m[34mSELECT SUM("income_amounts"."amount") FROM "income_amounts" WHERE "income_amounts"."date" BETWEEN ? AND ?[0m  [["date", "2023-08-31"], ["date", "2023-08-31"]]
+  [1m[36mIncomeAmount Sum (0.2ms)[0m  [1m[34mSELECT SUM("income_amounts"."amount") FROM "income_amounts" WHERE "income_amounts"."date" BETWEEN ? AND ?[0m  [["date", "2023-08-01"], ["date", "2023-08-31"]]
+Started GET "/" for ::1 at 2023-09-02 21:49:33 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 65.8ms | Allocations: 614)
+  Rendered layouts/_header.html.erb (Duration: 75.5ms | Allocations: 1581)
+  Rendered layouts/_footer.html.erb (Duration: 12.8ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 2307.1ms | Allocations: 60789)
+Completed 200 OK in 7412ms (Views: 2388.2ms | ActiveRecord: 0.0ms | Allocations: 101146)
+
+
+Started GET "/income_sum" for ::1 at 2023-09-02 21:49:51 +0900
+Processing by SumController#income_sum as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sum/income_sum.html.erb within layouts/application
+  Rendered sum/income_sum.html.erb within layouts/application (Duration: 1.6ms | Allocations: 104)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 276)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 98.5ms | Allocations: 8237)
+Completed 200 OK in 125ms (Views: 113.3ms | ActiveRecord: 0.0ms | Allocations: 8908)
+
+
+Started GET "/income_sum" for ::1 at 2023-09-02 21:51:47 +0900
+Processing by SumController#income_sum as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sum/income_sum.html.erb within layouts/application
+  Rendered sum/income_sum.html.erb within layouts/application (Duration: 22.7ms | Allocations: 131)
+  Rendered layouts/_header.html.erb (Duration: 3.0ms | Allocations: 604)
+  Rendered layouts/_footer.html.erb (Duration: 1.4ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 129.0ms | Allocations: 9107)
+Completed 200 OK in 163ms (Views: 148.3ms | ActiveRecord: 0.0ms | Allocations: 10302)
+
+
+Started GET "/income_sum" for ::1 at 2023-09-02 21:52:20 +0900
+Processing by SumController#income_sum as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sum/income_sum.html.erb within layouts/application
+  [1m[36mIncomeAmount Sum (0.2ms)[0m  [1m[34mSELECT SUM("income_amounts"."amount") FROM "income_amounts" WHERE "income_amounts"."date" BETWEEN ? AND ?[0m  [["date", "2023-09-01"], ["date", "2023-09-30"]]
+  ↳ app/views/sum/income_sum.html.erb:3
+  Rendered sum/income_sum.html.erb within layouts/application (Duration: 193.5ms | Allocations: 15423)
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 604)
+  Rendered layouts/_footer.html.erb (Duration: 1.8ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 235.3ms | Allocations: 24308)
+Completed 200 OK in 248ms (Views: 243.2ms | ActiveRecord: 0.6ms | Allocations: 25501)
+
+
+Started GET "/login" for ::1 at 2023-09-02 21:52:24 +0900
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 174.4ms | Allocations: 2201)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 245)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 272.5ms | Allocations: 10222)
+Completed 200 OK in 302ms (Views: 290.5ms | ActiveRecord: 0.0ms | Allocations: 10893)
+
+
+Started POST "/login" for ::1 at 2023-09-02 21:52:34 +0900
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"yamada@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yamada@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:47:in `forget'
+  [1m[36mUser Update (14.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "remember_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-09-02 12:52:35.626142"], ["remember_digest", nil], ["id", 1]]
+  ↳ app/models/user.rb:47:in `forget'
+  [1m[36mTRANSACTION (35.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:47:in `forget'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29:in `remember'
+  [1m[36mUser Update (13.7ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$/w3uCRfbAq09wITsvx2sbuFn7EK6foNkeFzKHYyCikpd7ZcNo3x9q"], ["updated_at", "2023-09-02 12:52:36.365521"], ["id", 1]]
+  ↳ app/models/user.rb:29:in `remember'
+  [1m[36mTRANSACTION (14.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29:in `remember'
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 1583ms (ActiveRecord: 81.5ms | Allocations: 13486)
+
+
+Started GET "/users/1" for ::1 at 2023-09-02 21:52:36 +0900
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 30.6ms | Allocations: 257)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 23.2ms | Allocations: 3419)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 168.2ms | Allocations: 11410)
+Completed 200 OK in 208ms (Views: 187.2ms | ActiveRecord: 1.1ms | Allocations: 13257)
+
+
+Started GET "/" for ::1 at 2023-09-02 21:52:43 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 5.2ms | Allocations: 655)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 29.4ms | Allocations: 2674)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 134.0ms | Allocations: 10886)
+Completed 200 OK in 372ms (Views: 148.3ms | ActiveRecord: 2.4ms | Allocations: 19138)
+
+
+Started GET "/income_sum" for ::1 at 2023-09-02 21:52:50 +0900
+Processing by SumController#income_sum as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sum/income_sum.html.erb within layouts/application
+  [1m[36mIncomeAmount Sum (0.4ms)[0m  [1m[34mSELECT SUM("income_amounts"."amount") FROM "income_amounts" WHERE "income_amounts"."date" BETWEEN ? AND ?[0m  [["date", "2023-09-01"], ["date", "2023-09-30"]]
+  ↳ app/views/sum/income_sum.html.erb:3
+  Rendered sum/income_sum.html.erb within layouts/application (Duration: 5.2ms | Allocations: 651)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 20.0ms | Allocations: 2698)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 117.0ms | Allocations: 11109)
+Completed 200 OK in 126ms (Views: 119.0ms | ActiveRecord: 1.0ms | Allocations: 11392)
+
+
+Started GET "/users/1" for ::1 at 2023-09-02 21:52:53 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 76)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 18.7ms | Allocations: 2704)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 124.0ms | Allocations: 10515)
+Completed 200 OK in 141ms (Views: 126.0ms | ActiveRecord: 1.1ms | Allocations: 11276)
+
+
+Started GET "/income" for ::1 at 2023-09-02 21:52:55 +0900
+Processing by IncomesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering incomes/index.html.erb within layouts/application
+  [1m[36mIncome Load (0.6ms)[0m  [1m[34mSELECT "incomes".* FROM "incomes" WHERE "incomes"."user_id" = ? ORDER BY "incomes"."name" ASC[0m  [["user_id", 1]]
+  ↳ app/views/incomes/index.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered incomes/index.html.erb within layouts/application (Duration: 60.2ms | Allocations: 1728)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 26.5ms | Allocations: 2654)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 185.8ms | Allocations: 11978)
+Completed 200 OK in 225ms (Views: 203.1ms | ActiveRecord: 1.1ms | Allocations: 13994)
+
+
+Started GET "/income_amount.24" for ::1 at 2023-09-02 21:52:58 +0900
+Processing by IncomeAmountsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering income_amounts/index.html.erb within layouts/application
+  [1m[36mIncome Load (0.6ms)[0m  [1m[34mSELECT "incomes".* FROM "incomes" WHERE "incomes"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/income_amounts/index.html.erb:2
+  [1m[36mIncomeAmount Load (0.6ms)[0m  [1m[34mSELECT "income_amounts".* FROM "income_amounts" WHERE "income_amounts"."income_id" = ? ORDER BY "income_amounts"."date" ASC[0m  [["income_id", 24]]
+  ↳ app/views/income_amounts/index.html.erb:3
+  [1m[36mCACHE IncomeAmount Load (0.0ms)[0m  [1m[34mSELECT "income_amounts".* FROM "income_amounts" WHERE "income_amounts"."income_id" = ? ORDER BY "income_amounts"."date" ASC[0m  [["income_id", 24]]
+  ↳ app/views/income_amounts/index.html.erb:4
+  Rendered income_amounts/index.html.erb within layouts/application (Duration: 119.2ms | Allocations: 5771)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 16.5ms | Allocations: 2705)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 226.8ms | Allocations: 16187)
+Completed 200 OK in 257ms (Views: 241.8ms | ActiveRecord: 2.7ms | Allocations: 16976)
+
+
+Started GET "/income_amount_register.24" for ::1 at 2023-09-02 21:53:01 +0900
+Processing by IncomeAmountsController#new as */*
+  Rendering layout layouts/application.html.erb
+  Rendering income_amounts/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 22.8ms | Allocations: 238)
+  Rendered income_amounts/new.html.erb within layouts/application (Duration: 173.9ms | Allocations: 3893)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 18.9ms | Allocations: 2681)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 279.9ms | Allocations: 14114)
+Completed 200 OK in 295ms (Views: 281.7ms | ActiveRecord: 0.5ms | Allocations: 14475)
+
+
+Started POST "/income_amounts" for ::1 at 2023-09-02 21:53:07 +0900
+Processing by IncomeAmountsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "income_amount"=>{"income_id"=>"24", "date(1i)"=>"2023", "date(2i)"=>"9", "date(3i)"=>"2", "amount"=>"1000"}, "commit"=>"登録"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/income_amounts_controller.rb:8:in `create'
+  [1m[36mIncome Load (0.6ms)[0m  [1m[34mSELECT "incomes".* FROM "incomes" WHERE "incomes"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/income_amounts_controller.rb:8:in `create'
+  [1m[36mIncomeAmount Create (22.6ms)[0m  [1m[32mINSERT INTO "income_amounts" ("date", "amount", "income_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2023-09-02"], ["amount", 1000], ["income_id", 24], ["created_at", "2023-09-02 12:53:07.333420"], ["updated_at", "2023-09-02 12:53:07.333420"]]
+  ↳ app/controllers/income_amounts_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (16.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/income_amounts_controller.rb:8:in `create'
+Redirected to http://localhost:3000/income
+Completed 302 Found in 78ms (ActiveRecord: 39.4ms | Allocations: 5181)
+
+
+Started GET "/income" for ::1 at 2023-09-02 21:53:07 +0900
+Processing by IncomesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering incomes/index.html.erb within layouts/application
+  [1m[36mIncome Load (0.4ms)[0m  [1m[34mSELECT "incomes".* FROM "incomes" WHERE "incomes"."user_id" = ? ORDER BY "incomes"."name" ASC[0m  [["user_id", 1]]
+  ↳ app/views/incomes/index.html.erb:3
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered incomes/index.html.erb within layouts/application (Duration: 10.5ms | Allocations: 1239)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 17.5ms | Allocations: 2634)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 120.1ms | Allocations: 11568)
+Completed 200 OK in 139ms (Views: 122.1ms | ActiveRecord: 1.0ms | Allocations: 13145)
+
+
+Started GET "/income_amount.24" for ::1 at 2023-09-02 21:53:11 +0900
+Processing by IncomeAmountsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering income_amounts/index.html.erb within layouts/application
+  [1m[36mIncome Load (0.5ms)[0m  [1m[34mSELECT "incomes".* FROM "incomes" WHERE "incomes"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/income_amounts/index.html.erb:2
+  [1m[36mIncomeAmount Load (0.5ms)[0m  [1m[34mSELECT "income_amounts".* FROM "income_amounts" WHERE "income_amounts"."income_id" = ? ORDER BY "income_amounts"."date" ASC[0m  [["income_id", 24]]
+  ↳ app/views/income_amounts/index.html.erb:3
+  [1m[36mCACHE IncomeAmount Load (0.4ms)[0m  [1m[34mSELECT "income_amounts".* FROM "income_amounts" WHERE "income_amounts"."income_id" = ? ORDER BY "income_amounts"."date" ASC[0m  [["income_id", 24]]
+  ↳ app/views/income_amounts/index.html.erb:4
+  Rendered income_amounts/index.html.erb within layouts/application (Duration: 16.5ms | Allocations: 1931)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 17.6ms | Allocations: 2681)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 122.2ms | Allocations: 12459)
+Completed 200 OK in 133ms (Views: 123.1ms | ActiveRecord: 2.0ms | Allocations: 12765)
+
+
+Started GET "/income_amount_register.24" for ::1 at 2023-09-02 21:53:13 +0900
+Processing by IncomeAmountsController#new as */*
+  Rendering layout layouts/application.html.erb
+  Rendering income_amounts/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered income_amounts/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2382)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 17.3ms | Allocations: 2681)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 109.6ms | Allocations: 12603)
+Completed 200 OK in 119ms (Views: 111.9ms | ActiveRecord: 0.4ms | Allocations: 12896)
+
+
+Started POST "/income_amounts" for ::1 at 2023-09-02 21:53:20 +0900
+Processing by IncomeAmountsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "income_amount"=>{"income_id"=>"24", "date(1i)"=>"2023", "date(2i)"=>"9", "date(3i)"=>"2", "amount"=>"2500"}, "commit"=>"登録"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/income_amounts_controller.rb:8:in `create'
+  [1m[36mIncome Load (0.4ms)[0m  [1m[34mSELECT "incomes".* FROM "incomes" WHERE "incomes"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/income_amounts_controller.rb:8:in `create'
+  [1m[36mIncomeAmount Create (14.4ms)[0m  [1m[32mINSERT INTO "income_amounts" ("date", "amount", "income_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2023-09-02"], ["amount", 2500], ["income_id", 24], ["created_at", "2023-09-02 12:53:21.199120"], ["updated_at", "2023-09-02 12:53:21.199120"]]
+  ↳ app/controllers/income_amounts_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (11.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/income_amounts_controller.rb:8:in `create'
+Redirected to http://localhost:3000/income
+Completed 302 Found in 68ms (ActiveRecord: 26.4ms | Allocations: 3430)
+
+
+Started GET "/income" for ::1 at 2023-09-02 21:53:21 +0900
+Processing by IncomesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering incomes/index.html.erb within layouts/application
+  [1m[36mIncome Load (0.6ms)[0m  [1m[34mSELECT "incomes".* FROM "incomes" WHERE "incomes"."user_id" = ? ORDER BY "incomes"."name" ASC[0m  [["user_id", 1]]
+  ↳ app/views/incomes/index.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered incomes/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 1239)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 17.7ms | Allocations: 2634)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 124.1ms | Allocations: 11573)
+Completed 200 OK in 145ms (Views: 125.5ms | ActiveRecord: 1.4ms | Allocations: 13118)
+
+
+Started GET "/income_amount.24" for ::1 at 2023-09-02 21:53:23 +0900
+Processing by IncomeAmountsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering income_amounts/index.html.erb within layouts/application
+  [1m[36mIncome Load (0.5ms)[0m  [1m[34mSELECT "incomes".* FROM "incomes" WHERE "incomes"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/income_amounts/index.html.erb:2
+  [1m[36mIncomeAmount Load (0.3ms)[0m  [1m[34mSELECT "income_amounts".* FROM "income_amounts" WHERE "income_amounts"."income_id" = ? ORDER BY "income_amounts"."date" ASC[0m  [["income_id", 24]]
+  ↳ app/views/income_amounts/index.html.erb:3
+  [1m[36mCACHE IncomeAmount Load (0.0ms)[0m  [1m[34mSELECT "income_amounts".* FROM "income_amounts" WHERE "income_amounts"."income_id" = ? ORDER BY "income_amounts"."date" ASC[0m  [["income_id", 24]]
+  ↳ app/views/income_amounts/index.html.erb:4
+  Rendered income_amounts/index.html.erb within layouts/application (Duration: 14.8ms | Allocations: 2040)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 18.9ms | Allocations: 2681)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 132.3ms | Allocations: 12548)
+Completed 200 OK in 143ms (Views: 133.5ms | ActiveRecord: 1.3ms | Allocations: 12854)
+
+
+Started GET "/income_sum" for ::1 at 2023-09-02 21:53:31 +0900
+Processing by SumController#income_sum as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sum/income_sum.html.erb within layouts/application
+  [1m[36mIncomeAmount Sum (0.4ms)[0m  [1m[34mSELECT SUM("income_amounts"."amount") FROM "income_amounts" WHERE "income_amounts"."date" BETWEEN ? AND ?[0m  [["date", "2023-09-01"], ["date", "2023-09-30"]]
+  ↳ app/views/sum/income_sum.html.erb:3
+  Rendered sum/income_sum.html.erb within layouts/application (Duration: 5.1ms | Allocations: 635)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 21.3ms | Allocations: 2690)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 129.7ms | Allocations: 11028)
+Completed 200 OK in 139ms (Views: 131.3ms | ActiveRecord: 1.0ms | Allocations: 11308)
+
+
+Started GET "/expenditure_sum" for ::1 at 2023-09-02 21:56:07 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/expenditure_sum"):
+  
+Started GET "/expenditure_sum" for ::1 at 2023-09-02 21:57:07 +0900
+Processing by SumController#expenditure_sum as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sum/expenditure_sum.html.erb within layouts/application
+  [1m[36mExpenditureAmount Sum (0.4ms)[0m  [1m[34mSELECT SUM("expenditure_amounts"."amount") FROM "expenditure_amounts" WHERE "expenditure_amounts"."date" BETWEEN ? AND ?[0m  [["date", "2023-09-01"], ["date", "2023-09-30"]]
+  ↳ app/views/sum/expenditure_sum.html.erb:3
+  Rendered sum/expenditure_sum.html.erb within layouts/application (Duration: 34.1ms | Allocations: 2431)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 15.6ms | Allocations: 7515)
+  Rendered layouts/_footer.html.erb (Duration: 1.4ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 117.4ms | Allocations: 32901)
+Completed 200 OK in 128ms (Views: 121.7ms | ActiveRecord: 2.3ms | Allocations: 34143)
+
+
+Started GET "/users/1" for ::1 at 2023-09-02 21:57:10 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 250)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 19.3ms | Allocations: 2728)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 113.8ms | Allocations: 10734)
+Completed 200 OK in 152ms (Views: 132.0ms | ActiveRecord: 1.0ms | Allocations: 12483)
+
+
+Started GET "/expenditure" for ::1 at 2023-09-02 21:57:13 +0900
+Processing by ExpendituresController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering expenditures/index.html.erb within layouts/application
+  [1m[36mExpenditure Load (0.6ms)[0m  [1m[34mSELECT "expenditures".* FROM "expenditures" WHERE "expenditures"."user_id" = ? ORDER BY "expenditures"."name" ASC[0m  [["user_id", 1]]
+  ↳ app/views/expenditures/index.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered expenditures/index.html.erb within layouts/application (Duration: 38.3ms | Allocations: 4086)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 18.5ms | Allocations: 2654)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 151.9ms | Allocations: 14272)
+Completed 200 OK in 229ms (Views: 165.9ms | ActiveRecord: 3.2ms | Allocations: 18360)
+
+
+Started GET "/expenditure_amount.3" for ::1 at 2023-09-02 21:57:15 +0900
+Processing by ExpenditureAmountsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering expenditure_amounts/index.html.erb within layouts/application
+  [1m[36mExpenditure Load (0.5ms)[0m  [1m[34mSELECT "expenditures".* FROM "expenditures" WHERE "expenditures"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/expenditure_amounts/index.html.erb:2
+  [1m[36mExpenditureAmount Load (0.5ms)[0m  [1m[34mSELECT "expenditure_amounts".* FROM "expenditure_amounts" WHERE "expenditure_amounts"."expenditure_id" = ? ORDER BY "expenditure_amounts"."date" ASC[0m  [["expenditure_id", 3]]
+  ↳ app/views/expenditure_amounts/index.html.erb:3
+  [1m[36mCACHE ExpenditureAmount Load (0.1ms)[0m  [1m[34mSELECT "expenditure_amounts".* FROM "expenditure_amounts" WHERE "expenditure_amounts"."expenditure_id" = ? ORDER BY "expenditure_amounts"."date" ASC[0m  [["expenditure_id", 3]]
+  ↳ app/views/expenditure_amounts/index.html.erb:4
+  Rendered expenditure_amounts/index.html.erb within layouts/application (Duration: 73.1ms | Allocations: 5535)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 18.9ms | Allocations: 2705)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 184.1ms | Allocations: 16063)
+Completed 200 OK in 214ms (Views: 199.3ms | ActiveRecord: 2.5ms | Allocations: 16780)
+
+
+Started GET "/expenditure_amount_register.3" for ::1 at 2023-09-02 21:57:18 +0900
+Processing by ExpenditureAmountsController#new as */*
+  Rendering layout layouts/application.html.erb
+  Rendering expenditure_amounts/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 2.0ms | Allocations: 225)
+  Rendered expenditure_amounts/new.html.erb within layouts/application (Duration: 43.8ms | Allocations: 3030)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 21.1ms | Allocations: 2681)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 149.5ms | Allocations: 13319)
+Completed 200 OK in 168ms (Views: 152.5ms | ActiveRecord: 0.5ms | Allocations: 13680)
+
+
+Started POST "/expenditure_amounts" for ::1 at 2023-09-02 21:57:24 +0900
+Processing by ExpenditureAmountsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "expenditure_amount"=>{"expenditure_id"=>"3", "date(1i)"=>"2023", "date(2i)"=>"9", "date(3i)"=>"2", "amount"=>"1987"}, "commit"=>"登録"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenditure_amounts_controller.rb:8:in `create'
+  [1m[36mExpenditure Load (0.5ms)[0m  [1m[34mSELECT "expenditures".* FROM "expenditures" WHERE "expenditures"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/expenditure_amounts_controller.rb:8:in `create'
+  [1m[36mExpenditureAmount Create (15.2ms)[0m  [1m[32mINSERT INTO "expenditure_amounts" ("date", "amount", "expenditure_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2023-09-02"], ["amount", 1987], ["expenditure_id", 3], ["created_at", "2023-09-02 12:57:24.448045"], ["updated_at", "2023-09-02 12:57:24.448045"]]
+  ↳ app/controllers/expenditure_amounts_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (15.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenditure_amounts_controller.rb:8:in `create'
+Redirected to http://localhost:3000/expenditure
+Completed 302 Found in 66ms (ActiveRecord: 31.1ms | Allocations: 4934)
+
+
+Started GET "/expenditure" for ::1 at 2023-09-02 21:57:24 +0900
+Processing by ExpendituresController#index as TURBO_STREAM
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering expenditures/index.html.erb within layouts/application
+  [1m[36mExpenditure Load (0.6ms)[0m  [1m[34mSELECT "expenditures".* FROM "expenditures" WHERE "expenditures"."user_id" = ? ORDER BY "expenditures"."name" ASC[0m  [["user_id", 1]]
+  ↳ app/views/expenditures/index.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered expenditures/index.html.erb within layouts/application (Duration: 11.4ms | Allocations: 1867)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 16.9ms | Allocations: 2634)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 135.9ms | Allocations: 12212)
+Completed 200 OK in 162ms (Views: 138.0ms | ActiveRecord: 1.4ms | Allocations: 13805)
+
+
+Started GET "/expenditure_amount.2" for ::1 at 2023-09-02 21:57:26 +0900
+Processing by ExpenditureAmountsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering expenditure_amounts/index.html.erb within layouts/application
+  [1m[36mExpenditure Load (0.5ms)[0m  [1m[34mSELECT "expenditures".* FROM "expenditures" WHERE "expenditures"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/expenditure_amounts/index.html.erb:2
+  [1m[36mExpenditureAmount Load (0.4ms)[0m  [1m[34mSELECT "expenditure_amounts".* FROM "expenditure_amounts" WHERE "expenditure_amounts"."expenditure_id" = ? ORDER BY "expenditure_amounts"."date" ASC[0m  [["expenditure_id", 2]]
+  ↳ app/views/expenditure_amounts/index.html.erb:3
+  [1m[36mCACHE ExpenditureAmount Load (0.0ms)[0m  [1m[34mSELECT "expenditure_amounts".* FROM "expenditure_amounts" WHERE "expenditure_amounts"."expenditure_id" = ? ORDER BY "expenditure_amounts"."date" ASC[0m  [["expenditure_id", 2]]
+  ↳ app/views/expenditure_amounts/index.html.erb:4
+  Rendered expenditure_amounts/index.html.erb within layouts/application (Duration: 13.7ms | Allocations: 1822)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 19.2ms | Allocations: 2681)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 120.5ms | Allocations: 12335)
+Completed 200 OK in 131ms (Views: 122.2ms | ActiveRecord: 1.4ms | Allocations: 12641)
+
+
+Started GET "/expenditure_amount_register.2" for ::1 at 2023-09-02 21:57:28 +0900
+Processing by ExpenditureAmountsController#new as */*
+  Rendering layout layouts/application.html.erb
+  Rendering expenditure_amounts/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 14)
+  Rendered expenditure_amounts/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 2383)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 18.1ms | Allocations: 2681)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 112.6ms | Allocations: 12604)
+Completed 200 OK in 123ms (Views: 114.6ms | ActiveRecord: 0.5ms | Allocations: 12897)
+
+
+Started POST "/expenditure_amounts" for ::1 at 2023-09-02 21:57:36 +0900
+Processing by ExpenditureAmountsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "expenditure_amount"=>{"expenditure_id"=>"2", "date(1i)"=>"2023", "date(2i)"=>"9", "date(3i)"=>"2", "amount"=>"2013"}, "commit"=>"登録"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenditure_amounts_controller.rb:8:in `create'
+  [1m[36mExpenditure Load (0.5ms)[0m  [1m[34mSELECT "expenditures".* FROM "expenditures" WHERE "expenditures"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/expenditure_amounts_controller.rb:8:in `create'
+  [1m[36mExpenditureAmount Create (14.3ms)[0m  [1m[32mINSERT INTO "expenditure_amounts" ("date", "amount", "expenditure_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2023-09-02"], ["amount", 2013], ["expenditure_id", 2], ["created_at", "2023-09-02 12:57:36.924865"], ["updated_at", "2023-09-02 12:57:36.924865"]]
+  ↳ app/controllers/expenditure_amounts_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (13.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenditure_amounts_controller.rb:8:in `create'
+Redirected to http://localhost:3000/expenditure
+Completed 302 Found in 64ms (ActiveRecord: 28.7ms | Allocations: 3427)
+
+
+Started GET "/expenditure" for ::1 at 2023-09-02 21:57:37 +0900
+Processing by ExpendituresController#index as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering expenditures/index.html.erb within layouts/application
+  [1m[36mExpenditure Load (0.5ms)[0m  [1m[34mSELECT "expenditures".* FROM "expenditures" WHERE "expenditures"."user_id" = ? ORDER BY "expenditures"."name" ASC[0m  [["user_id", 1]]
+  ↳ app/views/expenditures/index.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered expenditures/index.html.erb within layouts/application (Duration: 12.5ms | Allocations: 1867)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 18.4ms | Allocations: 2634)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 116.8ms | Allocations: 12201)
+Completed 200 OK in 137ms (Views: 118.5ms | ActiveRecord: 1.1ms | Allocations: 13755)
+
+
+Started GET "/expenditure_sum" for ::1 at 2023-09-02 21:57:43 +0900
+Processing by SumController#expenditure_sum as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sum/expenditure_sum.html.erb within layouts/application
+  [1m[36mExpenditureAmount Sum (0.4ms)[0m  [1m[34mSELECT SUM("expenditure_amounts"."amount") FROM "expenditure_amounts" WHERE "expenditure_amounts"."date" BETWEEN ? AND ?[0m  [["date", "2023-09-01"], ["date", "2023-09-30"]]
+  ↳ app/views/sum/expenditure_sum.html.erb:3
+  Rendered sum/expenditure_sum.html.erb within layouts/application (Duration: 5.8ms | Allocations: 637)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 21.3ms | Allocations: 2690)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 117.5ms | Allocations: 11158)
+Completed 200 OK in 127ms (Views: 119.3ms | ActiveRecord: 0.9ms | Allocations: 11438)
+
+
