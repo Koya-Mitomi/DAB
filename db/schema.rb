@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_31_022640) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_03_135315) do
   create_table "expenditure_amounts", force: :cascade do |t|
     t.date "date"
     t.integer "amount"
     t.integer "expenditure_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
     t.index ["expenditure_id"], name: "index_expenditure_amounts_on_expenditure_id"
+    t.index ["user_id"], name: "index_expenditure_amounts_on_user_id"
   end
 
   create_table "expenditures", force: :cascade do |t|
@@ -34,7 +36,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_022640) do
     t.integer "income_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
     t.index ["income_id"], name: "index_income_amounts_on_income_id"
+    t.index ["user_id"], name: "index_income_amounts_on_user_id"
   end
 
   create_table "incomes", force: :cascade do |t|
@@ -56,7 +60,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_022640) do
   end
 
   add_foreign_key "expenditure_amounts", "expenditures"
+  add_foreign_key "expenditure_amounts", "users"
   add_foreign_key "expenditures", "users"
   add_foreign_key "income_amounts", "incomes"
+  add_foreign_key "income_amounts", "users"
   add_foreign_key "incomes", "users"
 end

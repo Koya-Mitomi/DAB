@@ -5,11 +5,11 @@ class ExpenditureAmountsController < ApplicationController
   end
 
   def create
-    @expenditure_amount = ExpenditureAmount.create(expenditure_amount_params)
+    @expenditure_amount = current_user.expenditure_amounts.create(expenditure_amount_params)
 
     if @expenditure_amount.save
       flash[:success] = "金額を入力しました！"
-      redirect_to expenditure_path
+      redirect_to expenditure_amount_path(@expenditure_amount.expenditure_id)
     else
       render 'new', status: :unprocessable_entity
     end
