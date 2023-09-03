@@ -5,11 +5,11 @@ class IncomeAmountsController < ApplicationController
   end
 
   def create
-    @income_amount = IncomeAmount.create(income_amount_params)
+    @income_amount = current_user.income_amounts.create(income_amount_params)
 
     if @income_amount.save
       flash[:success] = "金額を入力しました！"
-      redirect_to income_path
+      redirect_to income_amount_path(@income_amount.income_id)
     else
       render 'new', status: :unprocessable_entity
     end
