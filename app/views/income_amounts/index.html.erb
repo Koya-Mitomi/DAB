@@ -1,7 +1,7 @@
 <% provide(:title, "収入科目の金額") %>
-<h1><%= Income.find(params[:format]).name%>の金額一覧</h1>
-<% if current_user.income_amounts.where(income_id: params[:format]).present? %>
-  <% current_user.income_amounts.where(income_id: params[:format]).each do |ia| %>
+<h1>今月の<%= Income.find(params[:format]).name%>の金額一覧</h1>
+<% if current_user.income_amounts.where(date: Time.zone.today.all_month, income_id: params[:format]).present? %>
+  <% current_user.income_amounts.where(date: Time.zone.today.all_month, income_id: params[:format]).each do |ia| %>
     <%= ia.date.strftime('%Y年%m月%d日') %>
     <%= ia.amount %>円
     <%= link_to "編集", edit_income_amount_path(ia) %>
