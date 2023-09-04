@@ -1,4 +1,6 @@
 class IncomeAmountsController < ApplicationController
+  before_action :logged_in_user
+  before_action :correct_user, only: [:update, :destroy]
 
   def new
     @income_amount = IncomeAmount.new
@@ -27,7 +29,7 @@ class IncomeAmountsController < ApplicationController
     @income_amount = IncomeAmount.find(params[:id])
     if @income_amount.update(income_amount_params)
       flash[:success] = "金額が変更されました"
-      redirect_to income_path
+      redirect_to income_amount_path(@income_amount.income_id)
     else
       render 'edit', status: :unprocessable_entity
     end
@@ -38,7 +40,7 @@ class IncomeAmountsController < ApplicationController
     @income_amount.destroy
     flash[:success] = "金額が削除されました"
     if request.referrer.nil?
-      redirect_to income_amount_path, status: :see_other
+      redirect_to income_amount_path(@income_amount.income_id), status: :see_other
     else
       redirect_to request.referrer, status: :see_other
     end
@@ -48,6 +50,21 @@ class IncomeAmountsController < ApplicationController
 
     def income_amount_params
       params.require(:income_amount).permit(:date, :amount, :income_id)
+    end
+
+     # ログイン済みかどうか確認
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "ログインしてください"
+        redirect_to login_url, status: :see_other
+      end
+    end
+
+    # 正しいユーザーかどうか確認
+    def correct_user
+      @income_amount = current_user.income_amounts.find_by(id: params[:id])
+      redirect_to root_url, status: :see_other if @income_amount.nil?
     end
 
 end

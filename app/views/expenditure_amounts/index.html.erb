@@ -1,7 +1,7 @@
 <% provide(:title, "支出科目の金額") %>
 <h1><%= Expenditure.find(params[:format]).name%>の金額一覧</h1>
-<% if @expenditure_amounts.where(expenditure_id: params[:format]).present? %>
-  <% @expenditure_amounts.where(expenditure_id: params[:format]).each do |ea| %>
+<% if current_user.expenditure_amounts.where(expenditure_id: params[:format]).present? %>
+  <% current_user.expenditure_amounts.where(expenditure_id: params[:format]).each do |ea| %>
     <%= ea.date.strftime('%Y年%m月%d日') %>
     <%= ea.amount %>円
     <%= link_to "編集", edit_expenditure_amount_path(ea) %>
