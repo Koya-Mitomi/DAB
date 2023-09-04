@@ -4,4 +4,7 @@ class SumController < ApplicationController
 
   def expenditure_sum
   end
+
+  def check
+  end
 end
