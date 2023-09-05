@@ -4,7 +4,7 @@
   <% @expenditures.each do |e| %>
     <%= e.name %>
     <% if current_user?(e.user) %>
-      <%= link_to "登録", expenditure_amount_path(e) %>
+      <%= link_to "確認・登録", expenditure_amount_path(e) %>
       <%= link_to "編集", edit_expenditure_path(e) %>
       <%= link_to "削除", "expenditures/#{e.id}", data: {"turbo-method": :delete,
                                     turbo_confirm: "本当に削除してよろしいですか？"} %><br>

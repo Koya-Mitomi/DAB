@@ -1,10 +1,27 @@
 <% provide(:title, "支出の合計")%>
-<h1>今月の支出</h1>
-<%= ExpenditureAmount.where(date: Time.zone.today.all_month).sum(:amount) %>円
+<h1>
+  <% if params["date(1i)"].present? %>
+    <%= params["date(1i)"] %>年<%= params["date(2i)"] %>月
+  <% else %>
+    今月
+  <% end %>
+  の支出
+</h1>
+
+<%= form_with(url: expenditure_sum_path(params[:format]), method: :GET) do |f|%>
+  <%= f.label :date, "年月" %>
+  <% if params["date(1i)"].present? %>
+    <%= f.date_select :date, discard_day: true, default: {year: params["date(1i)"], month: params["date(2i)"]}, class: 'form-control' %>
+  <% else %>
+    <%= f.date_select :date, discard_day: true, class: 'form-control' %>
+  <% end %>
+  <%= f.submit "表示", class: "btn btn-primary" %>
+<% end %>
+合計 : <%= @expenditure_amounts.where(date: Time.zone.today.all_month).sum(:amount) %>円<br>
 
 <% if current_user.expenditures.order(:name).present? %>
   <% current_user.expenditures.order(:name).each do |e| %>
     <%= link_to e.name, expenditure_amount_path(e) %>
-    <%= ExpenditureAmount.where(date: Time.zone.today.all_month, user_id: current_user.id, expenditure_id: e.id).sum(:amount) %>円<br>
+    <%= @expenditure_amounts.where(date: Time.zone.today.all_month, expenditure_id: e.id).sum(:amount) %>円<br>
   <% end %>
 <% end %><br>

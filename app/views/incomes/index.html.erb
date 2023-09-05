@@ -4,7 +4,7 @@
   <% @incomes.each do |i| %>
     <%= i.name %>
     <% if current_user?(i.user) %>
-      <%= link_to "登録", income_amount_path(i) %>
+      <%= link_to "確認・登録", income_amount_path(i) %>
       <%= link_to "編集", edit_income_path(i) %>
       <%= link_to "削除", "incomes/#{i.id}", data: {"turbo-method": :delete,
                                     turbo_confirm: "本当に削除してよろしいですか？"} %><br>

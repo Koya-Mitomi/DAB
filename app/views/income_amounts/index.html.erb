@@ -1,7 +1,19 @@
 <% provide(:title, "収入科目の金額") %>
-<h1>今月の<%= Income.find(params[:format]).name%>の金額一覧</h1>
-<% if current_user.income_amounts.where(date: Time.zone.today.all_month, income_id: params[:format]).present? %>
-  <% current_user.income_amounts.where(date: Time.zone.today.all_month, income_id: params[:format]).each do |ia| %>
+<h1>
+  <% if params["date(1i)"].present? %>
+    <%= params["date(1i)"] %>年<%= params["date(2i)"] %>月
+  <% else %>
+    今月
+  <% end %>
+  の<%= Income.find(params[:format]).name%>の金額一覧
+</h1>
+<%= form_with(url: income_amount_path(params[:format]), method: :GET) do |f|%>
+  <%= f.label :date, "年月" %>
+  <%= f.date_select :date, discard_day: true, class: 'form-control' %>
+  <%= f.submit "表示", class: "btn btn-primary" %>
+<% end %>
+<% if @income_amounts.present? %>
+  <% @income_amounts.each do |ia| %>
     <%= ia.date.strftime('%Y年%m月%d日') %>
     <%= ia.amount %>円
     <%= link_to "編集", edit_income_amount_path(ia) %>
