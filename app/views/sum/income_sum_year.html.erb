@@ -1,5 +1,7 @@
+<% provide(:title, "年の収入の合計") %>
+
 <h1>
-  <%= params["date(1i)"] %>の収入
+  <%= params["date(1i)"] %>年の収入
 </h1>
 
 合計 : <%= @income_amounts.sum(:amount) %>円<br>

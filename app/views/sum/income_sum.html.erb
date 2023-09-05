@@ -1,4 +1,4 @@
-<% provide(:title, "収入の合計")%>
+<% provide(:title, "月の収入の合計")%>
 
 <%= form_with(url: income_sum_path(params[:format]), method: :GET) do |f| %>
   <%= f.label :year, "年月を入力" %>
