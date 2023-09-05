@@ -1,27 +1,44 @@
 <% provide(:title, "支出の合計")%>
+
+<%= form_with(url: expenditure_sum_path(params[:format]), method: :GET) do |f| %>
+  <%= f.label :year, "年月を入力" %>
+  <% if params[:year].present? %>
+    <%= f.number_field :year, value: params[:year], class: 'form-control' %>
+  <% else %>
+    <%= f.number_field :year, value: Date.today.year, class: 'form-control' %>
+  <% end %>年
+  <% if params["date(2i)"].present? %>
+    <%= f.date_select :date, discard_day: true, discard_year: true, default: {year: params["date(1i)"], month: params["date(2i)"]}, class: 'form-control' %>
+  <% else %>
+    <%= f.date_select :date, discard_day: true, discard_year: true, class: 'form-control' %>
+  <% end %>の支出を
+  <%= f.submit "表示", class: "btn btn-primary" %>
+<% end %>
+
 <h1>
-  <% if params["date(1i)"].present? %>
-    <%= params["date(1i)"] %>年<%= params["date(2i)"] %>月
+  <% if params[:year].present? && params["date(2i)"].present? %>
+    <%= params[:year] %>年<%= params["date(2i)"] %>月
   <% else %>
     今月
   <% end %>
   の支出
 </h1>
 
-<%= form_with(url: expenditure_sum_path(params[:format]), method: :GET) do |f|%>
-  <%= f.label :date, "年月" %>
-  <% if params["date(1i)"].present? %>
-    <%= f.date_select :date, discard_day: true, default: {year: params["date(1i)"], month: params["date(2i)"]}, class: 'form-control' %>
-  <% else %>
-    <%= f.date_select :date, discard_day: true, class: 'form-control' %>
-  <% end %>
-  <%= f.submit "表示", class: "btn btn-primary" %>
-<% end %>
-合計 : <%= @expenditure_amounts.where(date: Time.zone.today.all_month).sum(:amount) %>円<br>
+合計 : <%= @expenditure_amounts.sum(:amount) %>円<br>
 
 <% if current_user.expenditures.order(:name).present? %>
   <% current_user.expenditures.order(:name).each do |e| %>
-    <%= link_to e.name, expenditure_amount_path(e) %>
-    <%= @expenditure_amounts.where(date: Time.zone.today.all_month, expenditure_id: e.id).sum(:amount) %>円<br>
+    <%= link_to e.name, expenditure_amount_path(e) %> :
+    <%= @expenditure_amounts.where(expenditure_id: e.id).sum(:amount) %>円<br>
   <% end %>
 <% end %><br>
+
+<p>年ごとの支出を表示</p>
+<%= form_with(url: expenditure_sum_year_path(params[:format]), method: :GET) do |f| %>
+  <% if params["date(2i)"].present? %>
+    <%= f.date_select :date, discard_day: true, discard_month: true, default: {year: params[:year], month: params["date(2i)"]}, class: 'form-control' %>
+  <% else %>
+    <%= f.date_select :date, discard_day: true, discard_month: true, class: 'form-control' %>
+  <% end %>の支出を
+  <%= f.submit "表示", class: "btn btn-primary" %>
+<% end %>

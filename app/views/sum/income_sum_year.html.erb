@@ -1,0 +1,12 @@
+<h1>
+  <%= params["date(1i)"] %>の収入
+</h1>
+
+合計 : <%= @income_amounts.sum(:amount) %>円<br>
+
+<% if current_user.incomes.order(:name).present? %>
+  <% current_user.incomes.order(:name).each do |i| %>
+    <%= link_to i.name, income_amount_path(i) %> :
+    <%= @income_amounts.where(income_id: i.id).sum(:amount) %>円<br>
+  <% end %>
+<% end %><br>

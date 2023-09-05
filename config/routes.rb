@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "/check", to: "sum#check"
   get "/income_sum", to: "sum#income_sum"
   get "/expenditure_sum", to: "sum#expenditure_sum"
+  get "/income_sum_year", to: "sum#income_sum_year"
+  get "/expenditure_sum_year", to: "sum#expenditure_sum_year"
   get    "/login",   to: "sessions#new"
   post   "/login",   to: "sessions#create"
   delete "/logout",  to: "sessions#destroy"
