@@ -9,6 +9,8 @@ gem 'rails-controller-testing'
 
 gem "bcrypt",          "3.1.18"
 
+gem "groupdate"
+
 # グラフを表示すっるために導入
 gem 'chartkick'
 
