@@ -45,6 +45,9 @@ class SumController < ApplicationController
       @pre_e = current_user.expenditure_amounts.where(
         date: Time.new(params[:year], 1, 1).years_ago(1).all_year
       ).sum(:amount)
+
+      @income_result_months = current_user.income_amounts.where(date: Time.zone.now.all_year).group("strftime('%Y%m', date)").sum(:amount)
+      @expenditure_result_months = current_user.expenditure_amounts.where(date: Time.zone.now.all_year).group("strftime('%Y%m', date)").sum(:amount)
     elsif params["date(1i)"].present?
       @income_amounts = current_user.income_amounts.where(
         date: Time.new(params["date(1i)"], params["date(2i)"], params["date(3i)"]).all_month
@@ -58,6 +61,9 @@ class SumController < ApplicationController
       @pre_e = current_user.expenditure_amounts.where(
         date: Time.new(params["date(1i)"], params["date(2i)"], params["date(3i)"]).months_ago(1).all_month
       ).sum(:amount)
+
+      @income_result_months = current_user.income_amounts.where(date: Time.new(params["date(1i)"], params["date(2i)"], params["date(3i)"]).all_year).group("strftime('%Y%m', date)").sum(:amount)
+      @expenditure_result_months = current_user.expenditure_amounts.where(date: Time.new(params["date(1i)"], params["date(2i)"], params["date(3i)"]).all_year).group("strftime('%Y%m', date)").sum(:amount)
     else
       @income_amounts = current_user.income_amounts.where(
         date: Time.zone.today.all_month
@@ -71,10 +77,62 @@ class SumController < ApplicationController
       @pre_e = current_user.expenditure_amounts.where(
         date: Time.zone.today.months_ago(1).all_month
       ).sum(:amount)
+
+      @income_result_months = current_user.income_amounts.where(date: Time.zone.now.all_year).group("strftime('%Y%m', date)").sum(:amount)
+      @expenditure_result_months = current_user.expenditure_amounts.where(date: Time.zone.now.all_year).group("strftime('%Y%m', date)").sum(:amount)
     end
 
-    # @income_result_years = current_user.income_amounts.group("strftime('%Y', date)").sum(:amount)
-    # @expenditure_result_years = current_user.expenditure_amounts.group("strftime('%Y', date)").sum(:amount)
+    @income_result_years = current_user.income_amounts.group("strftime('%Y', date)").sum(:amount)
+    @expenditure_result_years = current_user.expenditure_amounts.group("strftime('%Y', date)").sum(:amount)
 
+    if @income_result_years.present? && @expenditure_result_years.present?
+      if @income_result_years.first.first.to_i <= @expenditure_result_years.first.first.to_i
+        @in_and_ex_data_years = @income_result_years.map { |year, result| [year, @income_result_years[year].to_i - @expenditure_result_years[year].to_i] }
+
+        if @income_result_years.keys.last.to_i < @expenditure_result_years.keys.last.to_i
+          for i in (@income_result_years.keys.last.to_i+1)..@expenditure_result_years.keys.last.to_i
+            @in_and_ex_data_years.push([i, -@expenditure_result_years[i.to_s].to_i])
+          end
+        end
+
+      else
+        @in_and_ex_data_years = @expenditure_result_years.map { |year, result| [year, @income_result_years[year].to_i - @expenditure_result_years[year].to_i] }
+
+        if @income_result_years.keys.last.to_i > @expenditure_result_years.keys.last.to_i
+          for i in (@expenditure_result_years.keys.last.to_i+1)..@income_result_years.keys.last.to_i
+            @in_and_ex_data_years.push([i, -@income_result_years[i.to_s].to_i])
+          end
+        end
+      end
+    elsif @income_result_years.present?
+      @in_and_ex_data_years = @income_result_years.map { |year, result| [year, @income_result_years[year].to_i] }
+    else
+      @in_and_ex_data_years = @expenditure_result_years.map { |year, result| [year, -@expenditure_result_years[year].to_i] }
+    end
+
+    if @income_result_months.present? && @expenditure_result_months.present?
+      if @income_result_months.first.first.to_i <= @expenditure_result_months.first.first.to_i
+        @in_and_ex_data_months = @income_result_months.map { |month, result| [month, @income_result_months[month].to_i - @expenditure_result_months[month].to_i] }
+
+        if @income_result_months.keys.last.to_i < @expenditure_result_months.keys.last.to_i
+          for i in (@income_result_months.keys.last.to_i+1)..@expenditure_result_months.keys.last.to_i
+            @in_and_ex_data_months.push([i, -@expenditure_result_months[i.to_s].to_i])
+          end
+        end
+
+      else
+        @in_and_ex_data_months = @expenditure_result_months.map { |month, result| [month, @income_result_months[month].to_i - @expenditure_result_months[month].to_i] }
+
+        if @income_result_months.keys.last.to_i > @expenditure_result_months.keys.last.to_i
+          for i in (@expenditure_result_months.keys.last.to_i+1)..@income_result_months.keys.last.to_i
+            @in_and_ex_data_months.push([i, @income_result_months[i.to_s].to_i])
+          end
+        end
+      end
+    elsif @income_result_months.present?
+      @in_and_ex_data_months = @income_result_months.map { |month, result| [month, @income_result_months[month].to_i] }
+    else
+      @in_and_ex_data_months = @expenditure_result_months.map { |month, result| [month, -@expenditure_result_months[month].to_i] }
+    end
   end
 end

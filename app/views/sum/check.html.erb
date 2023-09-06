@@ -8,15 +8,18 @@
 
   収入 : <%= @income_amounts.sum(:amount) %>円<br>
   支出 : <%= @expenditure_amounts.sum(:amount) %>円<br>
-  収入 - 支出 : <%= i_e = @income_amounts.sum(:amount) - @expenditure_amounts.sum(:amount) %>円<br><br>
+  収入 ー 支出 : <%= i_e = @income_amounts.sum(:amount) - @expenditure_amounts.sum(:amount) %>円<br><br>
 
-  <h2>前の年との「収入 - 支出」の比較</h2>
+  <h2>前の年との「収入 ー 支出」の比較</h2>
 
   <% if ( com = i_e - (@pre_i - @pre_e) ) >= 0 %>
     +<%= com %>
   <% else %>
     <%= com %>
   <% end %>円<br>
+
+  <h2>「収入 ー 支出」の推移</h2>
+  <%= line_chart @in_and_ex_data_years, donut: true, xtitle: "年", ytitle: "「収入 ー 支出」(円)" %>
 
   <h2>月ごとの収支を表示</h2>
   <%= form_with(url: check_path(params[:format]), method: :GET) do |f| %>
@@ -36,9 +39,9 @@
 
   収入 : <%= @income_amounts.sum(:amount) %>円<br>
   支出 : <%= @expenditure_amounts.sum(:amount) %>円<br>
-  収入 - 支出 : <%= i_e = @income_amounts.sum(:amount) - @expenditure_amounts.sum(:amount) %>円<br><br>
+  収入 ー 支出 : <%= i_e = @income_amounts.sum(:amount) - @expenditure_amounts.sum(:amount) %>円<br><br>
 
-  <h2>前の月との「収入 - 支出」の比較</h2>
+  <h2>前の月との「収入 ー 支出」の比較</h2>
 
   <% if ( com = i_e - (@pre_i - @pre_e) ) >= 0 %>
     +<%= com %>
@@ -46,7 +49,8 @@
     <%= com %>
   <% end %>円<br>
 
-  <%# <%= line_chart , donut: true, suffix: "%" %> %>
+  <h2>「収入 ー 支出」の推移</h2>
+  <%= line_chart @in_and_ex_data_months, donut: true, xtitle: "月", ytitle: "「収入 ー 支出」(円)" %>
 
   <h2>年ごとの収支を表示</h2>
   <%= form_with(url: check_path(params[:format]), method: :GET) do |f| %>

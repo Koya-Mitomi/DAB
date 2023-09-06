@@ -7,7 +7,7 @@
   <% end %>
   の<%= Expenditure.find(params[:format]).name%>の金額一覧
 </h1>
-<%= form_with(url: income_amount_path(params[:format]), method: :GET) do |f|%>
+<%= form_with(url: expenditure_amount_path(params[:format]), method: :GET) do |f|%>
   <%= f.label :date, "年月" %>
   <% if params["date(2i)"].present? %>
     <%= f.date_select :date, discard_day: true, default: {year: params["date(1i)"], month: params["date(2i)"]}, class: 'form-control' %>
