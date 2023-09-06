@@ -9,7 +9,11 @@
 </h1>
 <%= form_with(url: income_amount_path(params[:format]), method: :GET) do |f|%>
   <%= f.label :date, "年月" %>
-  <%= f.date_select :date, discard_day: true, class: 'form-control' %>
+  <% if params["date(2i)"].present? %>
+    <%= f.date_select :date, discard_day: true, default: {year: params["date(1i)"], month: params["date(2i)"]}, class: 'form-control' %>
+  <% else %>
+    <%= f.date_select :date, discard_day: true, class: 'form-control' %>
+  <% end %>
   <%= f.submit "表示", class: "btn btn-primary" %>
 <% end %>
 <% if @income_amounts.present? %>

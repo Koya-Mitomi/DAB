@@ -10,6 +10,8 @@
   <%= params["date(1i)"] %>年の支出
 </h1>
 
+<%= pie_chart @expenditure_data, donut: true, xtitle: "Category", ytitle: "Total Income" %>
+
 合計 : <%= @expenditure_amounts.sum(:amount) %>円<br>
 
 <% if current_user.expenditures.order(:name).present? %>

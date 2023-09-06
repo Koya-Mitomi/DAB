@@ -46,6 +46,8 @@
     <%= com %>
   <% end %>円<br>
 
+  <%# <%= line_chart , donut: true, suffix: "%" %> %>
+
   <h2>年ごとの収支を表示</h2>
   <%= form_with(url: check_path(params[:format]), method: :GET) do |f| %>
     <%= f.number_field :year, value: Date.today.year, class: 'form-control' %>年の収支を
