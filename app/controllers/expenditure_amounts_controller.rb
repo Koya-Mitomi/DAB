@@ -26,24 +26,22 @@ class ExpenditureAmountsController < ApplicationController
   end
 
   def edit
-    @expenditure_amount = ExpenditureAmount.find(params[:id])
+    @expenditure_amount = current_user.expenditure_amounts.find(params[:id])
   end
 
   def update
-    @expenditure_amount = ExpenditureAmount.find(params[:id])
     if @expenditure_amount.update(expenditure_amount_params)
       flash[:success] = "金額が変更されました"
-      redirect_to expenditure_amount_path(@expenditure_amount.income_id)
+      redirect_to expenditure_amount_path(@expenditure_amount.expenditure_id)
     else
       render 'edit', status: :unprocessable_entity
     end
   end
 
   def destroy
-    @expenditure_amount = ExpenditureAmount.find(params[:id])
     @expenditure_amount.destroy
-    flash[:success] = "金額が削除されました"
     if request.referrer.nil?
+      flash[:success] = "金額が削除されました"
       redirect_to expenditure_amount_path(@expenditure_amount.income_id), status: :see_other
     else
       redirect_to request.referrer, status: :see_other

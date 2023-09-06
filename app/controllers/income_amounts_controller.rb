@@ -26,11 +26,10 @@ class IncomeAmountsController < ApplicationController
   end
 
   def edit
-    @income_amount = IncomeAmount.find(params[:id])
+    @income_amount = current_user.income_amounts.find(params[:id])
   end
 
   def update
-    @income_amount = IncomeAmount.find(params[:id])
     if @income_amount.update(income_amount_params)
       flash[:success] = "金額が変更されました"
       redirect_to income_amount_path(@income_amount.income_id)
@@ -40,10 +39,9 @@ class IncomeAmountsController < ApplicationController
   end
 
   def destroy
-    @income_amount = IncomeAmount.find(params[:id])
     @income_amount.destroy
-    flash[:success] = "金額が削除されました"
     if request.referrer.nil?
+      flash[:success] = "金額が削除されました"
       redirect_to income_amount_path(@income_amount.income_id), status: :see_other
     else
       redirect_to request.referrer, status: :see_other

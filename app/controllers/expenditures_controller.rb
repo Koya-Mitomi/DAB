@@ -36,8 +36,8 @@ class ExpendituresController < ApplicationController
 
   def destroy
     @expenditure.destroy
-    flash[:success] = "収入科目が削除されました"
     if request.referrer.nil?
+      flash[:success] = "収入科目が削除されました"
       redirect_to expenditure_path, status: :see_other
     else
       redirect_to request.referrer, status: :see_other

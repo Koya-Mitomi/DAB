@@ -36,8 +36,8 @@ class IncomesController < ApplicationController
 
   def destroy
     @income.destroy
-    flash[:success] = "収入科目が削除されました"
     if request.referrer.nil?
+      flash[:success] = "収入科目が削除されました"
       redirect_to income_path, status: :see_other
     else
       redirect_to request.referrer, status: :see_other
