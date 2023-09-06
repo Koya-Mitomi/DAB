@@ -8,9 +8,17 @@
 
   収入 : <%= @income_amounts.sum(:amount) %>円<br>
   支出 : <%= @expenditure_amounts.sum(:amount) %>円<br>
-  収入 - 支出 : <%= @income_amounts.sum(:amount) - @expenditure_amounts.sum(:amount) %>円<br><br>
+  収入 - 支出 : <%= i_e = @income_amounts.sum(:amount) - @expenditure_amounts.sum(:amount) %>円<br><br>
 
-  <p>月ごとの収支を表示</p>
+  <h2>前の年との「収入 - 支出」の比較</h2>
+
+  <% if ( com = i_e - (@pre_i - @pre_e) ) >= 0 %>
+    +<%= com %>
+  <% else %>
+    <%= com %>
+  <% end %>円<br>
+
+  <h2>月ごとの収支を表示</h2>
   <%= form_with(url: check_path(params[:format]), method: :GET) do |f| %>
     <%= f.date_select :date, discard_day: true, default: {year: params[:year]}, class: 'form-control' %>月の収支を
     <%= f.submit "表示", class: "btn btn-primary" %>
@@ -28,9 +36,17 @@
 
   収入 : <%= @income_amounts.sum(:amount) %>円<br>
   支出 : <%= @expenditure_amounts.sum(:amount) %>円<br>
-  収入 - 支出 : <%= @income_amounts.sum(:amount) - @expenditure_amounts.sum(:amount) %>円<br><br>
+  収入 - 支出 : <%= i_e = @income_amounts.sum(:amount) - @expenditure_amounts.sum(:amount) %>円<br><br>
 
-  <p>年ごとの収支を表示</p>
+  <h2>前の月との「収入 - 支出」の比較</h2>
+
+  <% if ( com = i_e - (@pre_i - @pre_e) ) >= 0 %>
+    +<%= com %>
+  <% else %>
+    <%= com %>
+  <% end %>円<br>
+
+  <h2>年ごとの収支を表示</h2>
   <%= form_with(url: check_path(params[:format]), method: :GET) do |f| %>
     <%= f.number_field :year, value: Date.today.year, class: 'form-control' %>年の収支を
     <%= f.submit "表示", class: "btn btn-primary" %>

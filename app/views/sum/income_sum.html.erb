@@ -33,7 +33,30 @@
   <% end %>
 <% end %><br>
 
-<p>年ごとの収入を表示</p>
+<h2>前の月との比較</h2>
+
+<% if params[:year].present? && params["date(2i)"].present? %>
+  <% if
+    ( com = @income_amounts.sum(:amount) - current_user.income_amounts.where(
+                                            date: Time.new(params[:year], params["date(2i)"], params["date(3i)"]).months_ago(1).all_month
+                                            ).sum(:amount) ) >= 0 %>
+    +<%= com %>
+  <% else %>
+    <%= com %>
+  <% end %>円
+<% else %>
+  <% if
+    ( com = @income_amounts.sum(:amount) - current_user.income_amounts.where(
+                                            date: Time.zone.today.months_ago(1).all_month
+                                            ).sum(:amount) ) >= 0 %>
+    +<%= com %>
+  <% else %>
+    <%= com %>
+  <% end %>円
+<% end %><br>
+
+<h2>年ごとの収入を表示</h2>
+
 <%= form_with(url: income_sum_year_path(params[:format]), method: :GET) do |f| %>
   <% if params["date(2i)"].present? %>
     <%= f.date_select :date, discard_day: true, discard_month: true, default: {year: params[:year], month: params["date(2i)"]}, class: 'form-control' %>
@@ -41,4 +64,7 @@
     <%= f.date_select :date, discard_day: true, discard_month: true, class: 'form-control' %>
   <% end %>の収入を
   <%= f.submit "表示", class: "btn btn-primary" %>
-<% end %>
+<% end %><br>
+
+<%= link_to "収支確認", check_path, class: "btn" %>
+
