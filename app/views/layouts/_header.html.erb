@@ -7,6 +7,7 @@
     <nav>
       <ul>
         <li><%= link_to "ホームページ", root_path %></li>
+        <li><%= link_to "このアプリの使い方", help_path %></li>
         <% if logged_in? %>
           <li><%= link_to "家計簿", current_user %></li>
           <li class="dropdown">

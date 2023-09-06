@@ -9,3 +9,14 @@ ja:
       income:
         name: 収入科目名
 
+      expenditure:
+        name: 支出科目名
+
+      income_amount:
+        amount: 金額
+        date: 日付
+
+      expenditure_amount:
+        amount: 金額
+        date: 日付
+
