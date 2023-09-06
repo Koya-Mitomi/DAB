@@ -9,6 +9,9 @@ gem 'rails-controller-testing'
 
 gem "bcrypt",          "3.1.18"
 
+# グラフを表示すっるために導入
+gem 'chartkick'
+
 # エラーメッセージを日本語化するために導入
 gem 'rails-i18n'
 
