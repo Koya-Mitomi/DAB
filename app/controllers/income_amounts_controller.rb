@@ -13,6 +13,7 @@ class IncomeAmountsController < ApplicationController
       flash[:success] = "金額を入力しました！"
       redirect_to income_amount_path(@income_amount.income_id)
     else
+      @income_id = @income_amount.income_id
       render 'new', status: :unprocessable_entity
     end
   end

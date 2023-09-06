@@ -9,7 +9,7 @@
   <%= f.date_select :date, class: 'form-control' %>
 
   <%= f.label :amount, "金額" %>
-  <%= f.number_field :amount, class: 'form-control' %>円
+  <%= f.number_field :amount, min: 0, max: 1000000000000, class: 'form-control' %>円
 
   <%= f.submit "変更を保存する", class: "btn btn-primary" %>
 <% end %>

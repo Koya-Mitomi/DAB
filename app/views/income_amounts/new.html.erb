@@ -2,14 +2,17 @@
 <h1>金額の追加</h1>
 <%= form_with(model: @income_amount) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-
-  <%= f.hidden_field :income_id, class: 'form-control', value: params[:format] %>
+  <% if @income_id.present? %>
+    <%= f.hidden_field :income_id, class: 'form-control', value: @income_id %>
+  <% else %>
+    <%= f.hidden_field :income_id, class: 'form-control', value: params[:format] %>
+  <% end %>
 
   <%= f.label :date, "年月" %>
   <%= f.date_select :date, class: 'form-control' %>
 
   <%= f.label :amount, "金額" %>
-  <%= f.number_field :amount, class: 'form-control' %>円
+  <%= f.number_field :amount, min: 0, max: 1000000000000, class: 'form-control' %>円
 
   <%= f.submit "登録", class: "btn btn-primary" %>
 <% end %>
