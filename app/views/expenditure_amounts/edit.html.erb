@@ -1,6 +1,6 @@
 <% provide(:title, '支出科目の金額の編集') %>
 <h1>支出の金額の編集</h1>
-<%= form_with(model: @expenditure_amount, url: "/expenditure_amounts/#{@expenditure_amount.id}", method: :patch) do |f| %>
+<%= form_with(model: @expenditure_amount, url: expenditure_expenditure_amount_path(params[:expenditure_id], @expenditure_amount), method: :patch) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
   <%= f.hidden_field :expenditure_id, class: 'form-control' %>

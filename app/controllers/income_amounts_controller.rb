@@ -15,7 +15,6 @@ class IncomeAmountsController < ApplicationController
       flash[:success] = "金額を入力しました！"
       redirect_to income_path(@income_amount.income_id)
     else
-      @income_id = @income_amount.income_id
       render 'new', status: :unprocessable_entity
     end
   end
@@ -35,9 +34,9 @@ class IncomeAmountsController < ApplicationController
 
   def destroy
     @income_amount.destroy
+    flash[:success] = "金額が削除されました"
     if request.referrer.nil?
-      flash[:success] = "金額が削除されました"
-      redirect_to income_amount_path(@income_amount.income_id), status: :see_other
+      redirect_to income_path(@income_amount.income_id), status: :see_other
     else
       redirect_to request.referrer, status: :see_other
     end

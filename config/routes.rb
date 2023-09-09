@@ -14,14 +14,10 @@ Rails.application.routes.draw do
   resources :incomes do
     resources :income_amounts, only: [:new, :edit, :create, :update, :destroy]
   end
+  resources :expenditures do
+    resources :expenditure_amounts, only: [:new, :edit, :create, :update, :destroy]
+  end
 
-  get "/expenditure", to:"expenditures#index"
-  get "/expenditure_register", to: "expenditures#new"
-  delete 'expenditures/:id' => 'expenditures#destroy'
-  patch 'expenditures/:id'  => 'expenditures#update'
-  get "/expenditure_amount", to:"expenditure_amounts#index"
-  get "/expenditure_amount_register", to:"expenditure_amounts#new"
-  delete 'expenditure_amounts/:id' => 'expenditure_amounts#destroy'
   resources :users
   resources :expenditures
   resources :expenditure_amounts

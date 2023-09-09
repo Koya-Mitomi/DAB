@@ -1,6 +1,6 @@
 <% provide(:title, '金額の追加') %>
 <h1>金額の追加</h1>
-<%= form_with(model: @income_amount) do |f| %>
+<%= form_with(model: @income_amount, url: income_income_amounts_path) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <%= f.hidden_field :income_id, class: 'form-control', value: params[:income_id] %>
 

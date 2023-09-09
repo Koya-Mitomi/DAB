@@ -1,6 +1,7 @@
 class ExpendituresController < ApplicationController
+  include CheckUserLoginStatus
   before_action :logged_in_user
-  before_action :correct_user, only: :destroy
+  before_action :correct_user, only: [:show, :edit, :destroy]
 
   def new
     @expenditure = Expenditure.new
@@ -10,9 +11,17 @@ class ExpendituresController < ApplicationController
     @expenditure = current_user.expenditures.build(expenditure_params)
     if @expenditure.save
       flash[:success] = "支出科目を追加しました!"
-      redirect_to expenditure_path
+      redirect_to action: :index
     else
       render 'new', status: :unprocessable_entity
+    end
+  end
+
+  def show
+    if params["date(2i)"].present?
+      @expenditure_amounts = current_user.expenditure_amounts.where(date: Time.new(params["date(1i)"], params["date(2i)"], params["date(3i)"]).all_month, expenditure_id: params[:id]).order(:date)
+    else
+      @expenditure_amounts = current_user.expenditure_amounts.where(date: Time.zone.today.all_month, expenditure_id: params[:id]).order(:date)
     end
   end
 
@@ -36,9 +45,9 @@ class ExpendituresController < ApplicationController
 
   def destroy
     @expenditure.destroy
+    flash[:success] = "収入科目が削除されました"
     if request.referrer.nil?
-      flash[:success] = "収入科目が削除されました"
-      redirect_to expenditure_path, status: :see_other
+      redirect_to expenditures_path, status: :see_other
     else
       redirect_to request.referrer, status: :see_other
     end
@@ -48,15 +57,6 @@ class ExpendituresController < ApplicationController
 
     def expenditure_params
       params.require(:expenditure).permit(:name)
-    end
-
-    # ログイン済みかどうか確認
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "ログインしてください"
-        redirect_to login_url, status: :see_other
-      end
     end
 
     # 正しいユーザーかどうか確認

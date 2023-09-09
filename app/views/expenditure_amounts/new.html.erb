@@ -1,12 +1,8 @@
 <% provide(:title, '金額の追加') %>
 <h1>金額の追加</h1>
-<%= form_with(model: @expenditure_amount) do |f| %>
+<%= form_with(model: @expenditure_amount, url: expenditure_expenditure_amounts_path) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <% if @expenditure_id.present? %>
-    <%= f.hidden_field :expenditure_id, class: 'form-control', value: @expenditure_id %>
-  <% else %>
-    <%= f.hidden_field :expenditure_id, class: 'form-control', value: params[:format] %>
-  <% end %>
+  <%= f.hidden_field :expenditure_id, class: 'form-control', value: params[:expenditure_id] %>
 
   <%= f.label :date, "日付" %>
   <%= f.date_select :date, class: 'form-control' %>
