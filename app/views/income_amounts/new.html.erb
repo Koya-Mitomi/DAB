@@ -2,11 +2,7 @@
 <h1>金額の追加</h1>
 <%= form_with(model: @income_amount) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <% if @income_id.present? %>
-    <%= f.hidden_field :income_id, class: 'form-control', value: @income_id %>
-  <% else %>
-    <%= f.hidden_field :income_id, class: 'form-control', value: params[:format] %>
-  <% end %>
+  <%= f.hidden_field :income_id, class: 'form-control', value: params[:income_id] %>
 
   <%= f.label :date, "日付" %>
   <%= f.date_select :date, class: 'form-control' %>

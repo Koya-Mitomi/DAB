@@ -5,9 +5,9 @@
   <% else %>
     今月
   <% end %>
-  の<%= Income.find(params[:format]).name%>の金額一覧
+  の<%= @income.name%>の金額一覧
 </h1>
-<%= form_with(url: income_amount_path(params[:format]), method: :GET) do |f|%>
+<%= form_with(url: income_amount_path(params[:id]), method: :GET) do |f|%>
   <%= f.label :date, "年月" %>
   <% if params["date(2i)"].present? %>
     <%= f.date_select :date, discard_day: true, default: {year: params["date(1i)"], month: params["date(2i)"]}, class: 'form-control' %>
@@ -20,10 +20,10 @@
   <% @income_amounts.each do |ia| %>
     <%= ia.date.strftime('%Y年%m月%d日') %>
     <%= ia.amount %>円
-    <%= link_to "編集", edit_income_amount_path(ia) %>
-    <%= link_to "削除", "income_amounts/#{ia.id}", data: {"turbo-method": :delete,
+    <%= link_to "編集", edit_income_income_amount_path(@income, ia) %>
+    <%= link_to "削除", income_income_amount_path(@income, ia), data: {"turbo-method": :delete,
                                   turbo_confirm: "本当に削除してよろしいですか？"} %><br>
   <% end %>
 <% end %><br>
-<%= link_to "金額を追加", income_amount_register_path(params[:format]) %><br>
-<%= link_to "収入科目一覧へ", income_path %>
+<%= link_to "金額を追加", new_income_income_amount_path(@income) %><br>
+<%= link_to "収入科目一覧へ", incomes_path %>

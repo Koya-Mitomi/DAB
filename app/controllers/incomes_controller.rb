@@ -1,6 +1,7 @@
 class IncomesController < ApplicationController
+  include CheckUserLoginStatus
   before_action :logged_in_user
-  before_action :correct_user, only: :destroy
+  before_action :correct_user, only: [:show, :edit, :destroy]
 
   def new
     @income = Income.new
@@ -10,9 +11,17 @@ class IncomesController < ApplicationController
     @income = current_user.incomes.build(income_params)
     if @income.save
       flash[:success] = "収入科目を追加しました!"
-      redirect_to income_path
+      redirect_to action: :index
     else
       render 'new', status: :unprocessable_entity
+    end
+  end
+
+  def show
+    if params["date(2i)"].present?
+      @income_amounts = current_user.income_amounts.where(date: Time.new(params["date(1i)"], params["date(2i)"], params["date(3i)"]).all_month, income_id: params[:id]).order(:date)
+    else
+      @income_amounts = current_user.income_amounts.where(date: Time.zone.today.all_month, income_id: params[:id]).order(:date)
     end
   end
 
@@ -48,15 +57,6 @@ class IncomesController < ApplicationController
 
     def income_params
       params.require(:income).permit(:name)
-    end
-
-    # ログイン済みかどうか確認
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "ログインしてください"
-        redirect_to login_url, status: :see_other
-      end
     end
 
     # 正しいユーザーかどうか確認

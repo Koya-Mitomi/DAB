@@ -1,6 +1,8 @@
 class IncomeAmountsController < ApplicationController
+  include CheckUserLoginStatus
   before_action :logged_in_user
-  before_action :correct_user, only: [:update, :destroy]
+  before_action :correct_user_before_create, only: [:create, :new]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
     @income_amount = IncomeAmount.new
@@ -11,18 +13,10 @@ class IncomeAmountsController < ApplicationController
 
     if @income_amount.save
       flash[:success] = "金額を入力しました！"
-      redirect_to income_amount_path(@income_amount.income_id)
+      redirect_to income_path(@income_amount.income_id)
     else
       @income_id = @income_amount.income_id
       render 'new', status: :unprocessable_entity
-    end
-  end
-
-  def index
-    if params["date(2i)"].present?
-      @income_amounts = current_user.income_amounts.where(date: Time.new(params["date(1i)"], params["date(2i)"], params["date(3i)"]).all_month, income_id: params[:format]).order(:date)
-    else
-      @income_amounts = current_user.income_amounts.where(date: Time.zone.today.all_month, income_id: params[:format]).order(:date)
     end
   end
 
@@ -33,7 +27,7 @@ class IncomeAmountsController < ApplicationController
   def update
     if @income_amount.update(income_amount_params)
       flash[:success] = "金額が変更されました"
-      redirect_to income_amount_path(@income_amount.income_id)
+      redirect_to income_path(@income_amount.income_id)
     else
       render 'edit', status: :unprocessable_entity
     end
@@ -55,19 +49,15 @@ class IncomeAmountsController < ApplicationController
       params.require(:income_amount).permit(:date, :amount, :income_id)
     end
 
-     # ログイン済みかどうか確認
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "ログインしてください"
-        redirect_to login_url, status: :see_other
-      end
-    end
-
     # 正しいユーザーかどうか確認
     def correct_user
       @income_amount = current_user.income_amounts.find_by(id: params[:id])
       redirect_to root_url, status: :see_other if @income_amount.nil?
+    end
+
+    def correct_user_before_create
+      income = current_user.incomes.find_by(id: params[:income_id])
+      redirect_to root_url, status: :see_other if income.nil?
     end
 
 end

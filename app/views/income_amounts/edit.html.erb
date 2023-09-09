@@ -1,6 +1,6 @@
 <% provide(:title, '収入科目の金額の編集') %>
 <h1>収入の金額の編集</h1>
-<%= form_with(model: @income_amount, url: "/income_amounts/#{@income_amount.id}", method: :patch) do |f| %>
+<%= form_with(model: @income_amount, url: income_income_amount_path(params[:income_id], @income_amount), method: :patch) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
   <%= f.hidden_field :income_id, class: 'form-control' %>
