@@ -37,7 +37,7 @@ class IncomesController < ApplicationController
     @income = current_user.incomes.find_by(id: params[:id])
     if @income.update(income_params)
       flash[:success] = "収入科目名が更新されました"
-      redirect_to @income
+      redirect_to incomes_path
     else
       render 'edit', status: :unprocessable_entity
     end

@@ -37,7 +37,7 @@ class ExpendituresController < ApplicationController
     @expenditure = current_user.expenditures.find_by(id: params[:id])
     if @expenditure.update(expenditure_params)
       flash[:success] = "収入科目名が更新されました"
-      redirect_to @expenditure
+      redirect_to expenditures_path
     else
       render 'edit', status: :unprocessable_entity
     end
