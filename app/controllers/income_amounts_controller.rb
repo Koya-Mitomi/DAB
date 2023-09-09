@@ -1,5 +1,5 @@
 class IncomeAmountsController < ApplicationController
-  include CheckUserLoginStatus
+  include CheckUserLoginStatusHelper
   before_action :logged_in_user
   before_action :correct_user_before_create, only: [:create, :new]
   before_action :correct_user, only: [:edit, :update, :destroy]

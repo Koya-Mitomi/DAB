@@ -1,5 +1,5 @@
 class ExpendituresController < ApplicationController
-  include CheckUserLoginStatus
+  include CheckUserLoginStatusHelper
   before_action :logged_in_user
   before_action :correct_user, only: [:show, :edit, :destroy]
 
