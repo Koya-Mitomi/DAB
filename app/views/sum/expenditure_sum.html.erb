@@ -30,7 +30,7 @@
 
 <% if current_user.expenditures.order(:name).present? %>
   <% current_user.expenditures.order(:name).each do |e| %>
-    <%= link_to e.name, expenditure_amount_path(e) %> :
+    <%= link_to e.name, expenditure_path(e) %> :
     <%= @expenditure_amounts.where(expenditure_id: e.id).sum(:amount) %>円<br>
   <% end %>
 <% end %><br>
@@ -64,7 +64,7 @@
     <%= f.date_select :date, discard_day: true, discard_month: true, default: {year: params[:year], month: params["date(2i)"]}, class: 'form-control' %>
   <% else %>
     <%= f.date_select :date, discard_day: true, discard_month: true, class: 'form-control' %>
-  <% end %>の支出を
+  <% end %>年の支出を
   <%= f.submit "表示", class: "btn btn-primary" %>
 <% end %><br>
 

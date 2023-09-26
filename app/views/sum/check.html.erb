@@ -23,7 +23,7 @@
 
   <h2>月ごとの収支を表示</h2>
   <%= form_with(url: check_path(params[:format]), method: :GET) do |f| %>
-    <%= f.date_select :date, discard_day: true, default: {year: params[:year]}, class: 'form-control' %>月の収支を
+    <%= f.date_select :date, discard_day: true, default: {year: params[:year]}, class: 'form-control' %>の収支を
     <%= f.submit "表示", class: "btn btn-primary" %>
   <% end %>
 <% else %>
@@ -33,7 +33,7 @@
       <%= f.date_select :date, discard_day: true, default: {year: params["date(1i)"], month: params["date(2i)"]}, class: 'form-control' %>
     <% else %>
       <%= f.date_select :date, discard_day: true, class: 'form-control' %>
-    <% end %>月の収支
+    <% end %>の収支
     <%= f.submit "表示", class: "btn btn-primary" %>
   <% end %>
 

@@ -30,7 +30,7 @@
 
 <% if current_user.incomes.order(:name).present? %>
   <% current_user.incomes.order(:name).each do |i| %>
-    <%= link_to i.name, income_amount_path(i) %> :
+    <%= link_to i.name, income_path(i) %> :
     <%= @income_amounts.where(income_id: i.id).sum(:amount) %>円<br>
   <% end %>
 <% end %><br>
@@ -64,7 +64,7 @@
     <%= f.date_select :date, discard_day: true, discard_month: true, default: {year: params[:year], month: params["date(2i)"]}, class: 'form-control' %>
   <% else %>
     <%= f.date_select :date, discard_day: true, discard_month: true, class: 'form-control' %>
-  <% end %>の収入を
+  <% end %>年の収入を
   <%= f.submit "表示", class: "btn btn-primary" %>
 <% end %><br>
 
